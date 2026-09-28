@@ -1,0 +1,849 @@
+/* =========================================================
+   BIRTHDAY PAGE
+========================================================= */
+
+.birthday-page {
+  --birthday-bg: #f8f1ea;
+  --birthday-paper: #fffaf6;
+  --birthday-brown: #4c3934;
+  --birthday-soft-brown: #806a62;
+  --birthday-muted: #927d75;
+  --birthday-rose: #9d6868;
+  --birthday-light-rose: #f4e2df;
+  --birthday-line: rgba(123, 94, 84, 0.18);
+
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(225, 183, 178, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 72%,
+      rgba(214, 181, 158, 0.14),
+      transparent 32%
+    ),
+    var(--birthday-bg);
+
+  color: var(--birthday-brown);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.birthday-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #eee5dd;
+}
+
+.birthday-hero-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.birthday-intro {
+  position: relative;
+
+  width: 100%;
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 110px 24px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.birthday-intro-inner {
+  position: relative;
+  z-index: 3;
+
+  width: min(780px, 100%);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.birthday-eyebrow {
+  margin: 0 0 28px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.28em;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+
+  color: #9b8178;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+.birthday-intro h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(58px, 9vw, 112px);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+
+  color: var(--birthday-brown);
+}
+
+.birthday-intro h1 em {
+  font-weight: 400;
+  font-style: italic;
+
+  color: var(--birthday-rose);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.birthday-rule {
+  width: min(260px, 70%);
+
+  margin: 38px auto 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+}
+
+.birthday-rule span:first-child,
+.birthday-rule span:last-child {
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--birthday-line);
+}
+
+.birthday-rule span:nth-child(2) {
+  font-family: Georgia, serif;
+  font-size: 17px;
+
+  color: rgba(157, 104, 104, 0.65);
+}
+
+
+.birthday-intro-text {
+  max-width: 420px;
+
+  margin: 0 auto;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  color: var(--birthday-muted);
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.birthday-heart {
+  position: absolute;
+
+  z-index: 1;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-weight: 300;
+  line-height: 1;
+
+  color: rgba(157, 105, 105, 0.28);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.birthday-heart--one {
+  top: 18%;
+  left: 14%;
+
+  font-size: 64px;
+
+  transform: rotate(-14deg);
+}
+
+.birthday-heart--two {
+  top: 30%;
+  right: 16%;
+
+  font-size: 27px;
+
+  transform: rotate(16deg);
+}
+
+.birthday-heart--three {
+  bottom: 18%;
+  left: 22%;
+
+  font-size: 21px;
+
+  transform: rotate(9deg);
+}
+
+.birthday-heart--four {
+  top: 24%;
+  right: 12%;
+
+  font-size: 70px;
+
+  transform: rotate(14deg);
+}
+
+
+/* =========================================================
+   LETTER SECTION
+========================================================= */
+
+.birthday-letter-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 120px 32px 150px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(244, 226, 223, 0.34),
+      rgba(255, 250, 246, 0.2),
+      rgba(244, 226, 223, 0.28)
+    );
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LETTER LAYOUT
+========================================================= */
+
+.birthday-letter-layout {
+  width: min(1050px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 170px minmax(0, 680px);
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   SIDE LABEL
+========================================================= */
+
+.birthday-letter-side {
+  position: sticky;
+  top: 60px;
+
+  padding-top: 8px;
+}
+
+.birthday-letter-side span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 42px;
+  font-weight: 400;
+
+  color: rgba(157, 104, 104, 0.5);
+}
+
+.birthday-letter-side p {
+  margin: 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+
+  text-transform: uppercase;
+
+  color: #a18c84;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.birthday-letter {
+  position: relative;
+
+  padding: 65px 70px 70px;
+
+  background: rgba(255, 252, 248, 0.78);
+
+  border: 1px solid rgba(126, 94, 84, 0.12);
+
+  box-shadow:
+    0 30px 80px rgba(82, 54, 46, 0.07),
+    0 8px 25px rgba(82, 54, 46, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* Inner paper border */
+
+.birthday-letter::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 10px;
+
+  border: 1px solid rgba(126, 94, 84, 0.07);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LETTER TEXT
+========================================================= */
+
+.birthday-letter p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 25px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.95;
+
+  color: #66504a;
+}
+
+.birthday-letter-greeting {
+  margin-bottom: 38px !important;
+
+  font-size: 26px !important;
+  font-style: italic;
+
+  color: var(--birthday-rose) !important;
+}
+
+
+.birthday-letter-emphasis {
+  margin-top: 45px !important;
+  margin-bottom: 50px !important;
+
+  font-size: 23px !important;
+  font-style: italic;
+
+  line-height: 1.5 !important;
+
+  color: var(--birthday-rose) !important;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.birthday-signature {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 5px;
+
+  padding-top: 15px;
+}
+
+.birthday-signature span {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: #aa948b;
+}
+
+.birthday-signature strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 34px;
+  font-weight: 400;
+  font-style: italic;
+
+  color: var(--birthday-brown);
+}
+
+
+/* =========================================================
+   CLOSING SECTION
+========================================================= */
+
+.birthday-closing {
+  position: relative;
+
+  width: 100%;
+  min-height: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 24px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+.birthday-closing-inner {
+  position: relative;
+  z-index: 3;
+
+  width: min(700px, 100%);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CLOSING TITLE
+========================================================= */
+
+.birthday-closing h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(45px, 6vw, 78px);
+
+  font-weight: 400;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  color: var(--birthday-brown);
+}
+
+.birthday-closing h2 em {
+  font-weight: 400;
+  font-style: italic;
+
+  color: var(--birthday-rose);
+}
+
+
+/* =========================================================
+   CLOSING DIVIDER
+========================================================= */
+
+.birthday-closing-rule {
+  width: min(240px, 60%);
+
+  margin: 38px auto 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.birthday-closing-rule span:first-child,
+.birthday-closing-rule span:last-child {
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--birthday-line);
+}
+
+.birthday-closing-rule span:nth-child(2) {
+  font-family: Georgia, serif;
+
+  font-size: 16px;
+
+  color: rgba(157, 104, 104, 0.6);
+}
+
+
+.birthday-closing-inner > p:last-child {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  font-style: italic;
+
+  color: var(--birthday-muted);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.birthday-footer {
+  width: 100%;
+
+  padding: 30px 24px 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  border-top: 1px solid rgba(123, 94, 84, 0.12);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: #a18c84;
+
+  box-sizing: border-box;
+}
+
+.birthday-footer span:nth-child(2) {
+  font-family: Georgia, serif;
+
+  font-size: 14px;
+
+  color: rgba(157, 104, 104, 0.55);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .birthday-intro {
+    min-height: 540px;
+
+    padding: 90px 24px;
+  }
+
+  .birthday-letter-section {
+    padding: 90px 24px 110px;
+  }
+
+  .birthday-letter-layout {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    max-width: 700px;
+  }
+
+  .birthday-letter-side {
+    position: static;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+  }
+
+  .birthday-letter-side span {
+    margin: 0;
+
+    font-size: 34px;
+  }
+
+  .birthday-letter-side p {
+    margin: 0;
+  }
+
+  .birthday-letter {
+    padding: 55px 55px 60px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .birthday-intro {
+    min-height: 470px;
+
+    padding: 75px 20px;
+  }
+
+  .birthday-eyebrow {
+    margin-bottom: 22px;
+
+    font-size: 8px;
+    letter-spacing: 0.23em;
+  }
+
+  .birthday-intro h1 {
+    font-size: clamp(48px, 15vw, 70px);
+
+    line-height: 0.94;
+  }
+
+  .birthday-rule {
+    margin: 30px auto 24px;
+  }
+
+  .birthday-intro-text {
+    max-width: 290px;
+
+    font-size: 11px;
+  }
+
+
+  /* Hearts */
+
+  .birthday-heart--one {
+    top: 13%;
+    left: 5%;
+
+    font-size: 43px;
+  }
+
+  .birthday-heart--two {
+    top: 22%;
+    right: 7%;
+
+    font-size: 20px;
+  }
+
+  .birthday-heart--three {
+    bottom: 12%;
+    left: 12%;
+
+    font-size: 16px;
+  }
+
+  .birthday-heart--four {
+    top: 18%;
+    right: 3%;
+
+    font-size: 46px;
+  }
+
+
+  /* Letter */
+
+  .birthday-letter-section {
+    padding: 70px 16px 90px;
+  }
+
+  .birthday-letter-layout {
+    gap: 24px;
+  }
+
+  .birthday-letter-side {
+    gap: 12px;
+  }
+
+  .birthday-letter-side span {
+    font-size: 28px;
+  }
+
+  .birthday-letter-side p {
+    font-size: 7px;
+  }
+
+  .birthday-letter {
+    padding: 45px 30px 48px;
+  }
+
+  .birthday-letter::before {
+    inset: 7px;
+  }
+
+  .birthday-letter p {
+    font-size: 15px;
+
+    line-height: 1.85;
+
+    margin-bottom: 22px;
+  }
+
+  .birthday-letter-greeting {
+    font-size: 23px !important;
+
+    margin-bottom: 30px !important;
+  }
+
+  .birthday-letter-emphasis {
+    margin-top: 35px !important;
+    margin-bottom: 40px !important;
+
+    font-size: 20px !important;
+  }
+
+  .birthday-signature strong {
+    font-size: 29px;
+  }
+
+
+  /* Closing */
+
+  .birthday-closing {
+    min-height: 430px;
+
+    padding: 80px 20px;
+  }
+
+  .birthday-closing h2 {
+    font-size: clamp(38px, 12vw, 56px);
+  }
+
+  .birthday-closing-inner > p:last-child {
+    font-size: 14px;
+  }
+
+
+  /* Footer */
+
+  .birthday-footer {
+    gap: 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.15em;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .birthday-intro {
+    min-height: 430px;
+  }
+
+  .birthday-intro h1 {
+    font-size: 45px;
+  }
+
+  .birthday-letter {
+    padding: 38px 24px 42px;
+  }
+
+  .birthday-letter p {
+    font-size: 14px;
+  }
+
+  .birthday-letter-emphasis {
+    font-size: 18px !important;
+  }
+
+}

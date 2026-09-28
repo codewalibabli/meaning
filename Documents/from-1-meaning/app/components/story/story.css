@@ -1,0 +1,1872 @@
+/* =========================================================
+   MEMENTO — OUR STORY
+   ========================================================= */
+
+.story-page {
+  --story-bg: #f8f1ea;
+  --story-paper: #fffaf6;
+  --story-brown: #4c3934;
+  --story-dark: #3f2e2a;
+  --story-soft: #806a62;
+  --story-muted: #927d75;
+  --story-light: #b09a91;
+  --story-rose: #9d6868;
+  --story-rose-soft: #f4e2df;
+  --story-line: rgba(123, 94, 84, 0.16);
+
+  min-height: 100vh;
+  width: 100%;
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 12% 14%,
+      rgba(225, 183, 178, 0.20),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 88% 62%,
+      rgba(214, 181, 158, 0.15),
+      transparent 32%
+    ),
+    #f8f1ea;
+
+  color: var(--story-brown);
+}
+
+
+/* =========================================================
+   TOP NAVIGATION
+   ========================================================= */
+
+.story-topbar {
+  position: relative;
+  z-index: 20;
+
+  width: calc(100% - 64px);
+  max-width: 1180px;
+
+  height: 68px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--story-line);
+}
+
+.story-brand {
+  color: var(--story-brown);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.story-brand:hover {
+  color: var(--story-rose);
+}
+
+.story-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.story-nav a {
+  color: var(--story-soft);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease;
+}
+
+.story-nav a:hover {
+  color: var(--story-rose);
+}
+
+
+/* =========================================================
+   SHARED TEXT
+   ========================================================= */
+
+.story-kicker {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+
+  color: #9b8178;
+}
+
+
+/* =========================================================
+   OPENING
+   ========================================================= */
+
+.story-opening {
+  position: relative;
+
+  min-height: 680px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  text-align: center;
+}
+
+.story-opening-inner {
+  position: relative;
+  z-index: 4;
+
+  width: min(900px, calc(100% - 40px));
+
+  padding-top: 35px;
+}
+
+.story-opening h1 {
+  margin: 30px 0 34px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(70px, 10vw, 126px);
+
+  font-weight: 400;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.065em;
+
+  color: var(--story-brown);
+}
+
+.story-opening h1 em {
+  font-weight: 400;
+
+  color: var(--story-rose);
+}
+
+.story-opening-text {
+  margin: 26px 0 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  line-height: 1.8;
+
+  color: var(--story-muted);
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.story-divider {
+  width: 240px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+}
+
+.story-divider span:first-child,
+.story-divider span:last-child {
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--story-line);
+}
+
+.story-divider span:nth-child(2) {
+  flex: 0 0 auto;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 14px;
+
+  font-weight: 300;
+
+  color: rgba(157, 104, 104, 0.48);
+}
+
+
+/* =========================================================
+   DECORATIVE HEARTS
+   ========================================================= */
+
+.story-heart {
+  position: absolute;
+
+  z-index: 2;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  color: rgba(157, 105, 105, 0.27);
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+.story-heart--one {
+  top: 21%;
+  left: 12%;
+
+  font-size: 52px;
+
+  transform: rotate(-14deg);
+}
+
+.story-heart--two {
+  top: 29%;
+  right: 14%;
+
+  font-size: 20px;
+
+  transform: rotate(13deg);
+}
+
+
+/* =========================================================
+   CHAPTER BASE
+   ========================================================= */
+
+.story-chapter {
+  position: relative;
+
+  width: calc(100% - 64px);
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 150px 0;
+}
+
+.story-chapter-content {
+  width: min(700px, 70%);
+
+  margin-left: 20%;
+}
+
+.story-chapter-number {
+  position: absolute;
+
+  left: 2%;
+
+  top: 158px;
+}
+
+.story-chapter-number span {
+  display: block;
+
+  margin-bottom: 13px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 11px;
+
+  color: var(--story-rose);
+}
+
+.story-chapter-number p {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.17em;
+
+  line-height: 1.65;
+
+  text-transform: uppercase;
+
+  color: var(--story-muted);
+}
+
+.story-chapter-content h2 {
+  margin: 24px 0 43px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(50px, 6vw, 78px);
+
+  font-weight: 400;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.055em;
+
+  color: var(--story-brown);
+}
+
+.story-chapter-content h2 em {
+  font-weight: 400;
+
+  color: var(--story-rose);
+}
+
+.story-chapter-content > p:not(.story-kicker):not(.story-emotional-line) {
+  max-width: 600px;
+
+  margin: 0 0 24px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 17px;
+
+  line-height: 1.9;
+
+  color: #66524b;
+}
+
+.story-chapter-content > p em {
+  font-style: italic;
+
+  color: var(--story-rose);
+}
+
+
+/* =========================================================
+   SMALL NOTE
+   ========================================================= */
+
+.story-small-note {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 48px;
+}
+
+.story-small-note span {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 24px;
+
+  font-weight: 300;
+
+  color: rgba(157, 104, 104, 0.40);
+
+  transform: rotate(-9deg);
+}
+
+.story-small-note p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 12px;
+
+  font-style: italic;
+
+  color: var(--story-muted);
+}
+
+
+/* =========================================================
+   PHOTO SECTION
+   ========================================================= */
+
+.story-photo-section {
+  width: calc(100% - 64px);
+  max-width: 1050px;
+
+  margin: 20px auto 120px;
+
+  text-align: center;
+}
+
+.story-photo-frame {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #e8ddd4;
+
+  box-shadow:
+    0 30px 70px rgba(82, 54, 46, 0.11);
+}
+
+.story-photo-frame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 14px;
+
+  border: 1px solid rgba(255, 250, 246, 0.42);
+
+  pointer-events: none;
+}
+
+.story-photo {
+  object-fit: cover;
+}
+
+.story-photo-caption {
+  max-width: 350px;
+
+  margin: 18px auto 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  line-height: 1.6;
+
+  color: var(--story-muted);
+}
+
+
+/* =========================================================
+   CLOSE SECTION
+   ========================================================= */
+
+.story-chapter--close {
+  padding-top: 120px;
+}
+
+.story-emotional-line {
+  margin: 55px 0 0 !important;
+
+  max-width: 560px !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-size: clamp(25px, 3vw, 37px) !important;
+
+  line-height: 1.25 !important;
+
+  letter-spacing: -0.025em;
+
+  color: var(--story-brown) !important;
+}
+
+.story-emotional-line::before {
+  content: "♡";
+
+  display: block;
+
+  margin-bottom: 17px;
+
+  font-family: Georgia, serif;
+
+  font-size: 20px;
+
+  font-weight: 300;
+
+  color: rgba(157, 104, 104, 0.38);
+
+  transform: rotate(-10deg);
+}
+
+
+/* =========================================================
+   PHOTO PAIR
+   ========================================================= */
+
+.story-photo-pair {
+  position: relative;
+
+  width: calc(100% - 64px);
+  max-width: 1050px;
+
+  height: 570px;
+
+  margin: 20px auto 130px;
+}
+
+.story-pair-photo {
+  position: absolute;
+
+  overflow: hidden;
+
+  background: #e8ddd4;
+
+  box-shadow:
+    0 25px 60px rgba(82, 54, 46, 0.13);
+}
+
+.story-pair-photo::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 10px;
+
+  border: 1px solid rgba(255, 250, 246, 0.40);
+
+  pointer-events: none;
+}
+
+.story-pair-photo img {
+  object-fit: cover;
+}
+
+.story-pair-photo--one {
+  left: 9%;
+  top: 0;
+
+  width: 57%;
+  height: 430px;
+
+  transform: rotate(-2deg);
+}
+
+.story-pair-photo--two {
+  right: 8%;
+  bottom: 0;
+
+  width: 35%;
+  height: 300px;
+
+  transform: rotate(3deg);
+}
+
+.story-pair-heart {
+  position: absolute;
+
+  left: 48%;
+  top: 44%;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 32px;
+
+  font-weight: 300;
+
+  color: rgba(157, 104, 104, 0.30);
+
+  transform: rotate(-13deg);
+}
+
+
+/* =========================================================
+   PEOPLE / LIFE SECTION
+   ========================================================= */
+
+.story-chapter--people {
+  padding-top: 130px;
+  padding-bottom: 160px;
+}
+
+.story-side-thought {
+  margin-top: 55px;
+
+  padding: 27px 0;
+
+  border-top: 1px solid var(--story-line);
+  border-bottom: 1px solid var(--story-line);
+}
+
+.story-side-thought span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  color: rgba(157, 104, 104, 0.35);
+}
+
+.story-side-thought p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  line-height: 1.7;
+
+  color: var(--story-muted);
+}
+
+
+/* =========================================================
+   HARD SECTION
+   ========================================================= */
+
+.story-hard-section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 35%,
+      rgba(157, 104, 104, 0.13),
+      transparent 32%
+    ),
+    #4a3732;
+
+  color: #fffaf7;
+}
+
+.story-hard-section::before {
+  content: "♡";
+
+  position: absolute;
+
+  left: 10%;
+  top: 16%;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 90px;
+
+  font-weight: 300;
+
+  color: rgba(255, 250, 247, 0.06);
+
+  transform: rotate(-12deg);
+}
+
+.story-hard-section::after {
+  content: "♡";
+
+  position: absolute;
+
+  right: 13%;
+  bottom: 14%;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 35px;
+
+  font-weight: 300;
+
+  color: rgba(255, 250, 247, 0.12);
+
+  transform: rotate(12deg);
+}
+
+.story-hard-inner {
+  width: min(760px, calc(100% - 64px));
+
+  text-align: center;
+}
+
+.story-hard-inner .story-kicker {
+  color: rgba(255, 250, 247, 0.50);
+}
+
+.story-hard-inner h2 {
+  margin: 25px 0 55px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(58px, 7vw, 90px);
+
+  font-weight: 400;
+
+  line-height: 0.90;
+
+  letter-spacing: -0.06em;
+
+  color: #fffaf7;
+}
+
+.story-hard-inner h2 em {
+  font-weight: 400;
+
+  color: #d9aaa8;
+}
+
+.story-hard-copy {
+  max-width: 580px;
+
+  margin: 0 auto;
+}
+
+.story-hard-copy p {
+  margin: 0 0 17px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 250, 247, 0.72);
+}
+
+.story-hard-copy p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   DISTANCE
+   ========================================================= */
+
+.story-chapter--distance {
+  padding-top: 170px;
+
+  padding-bottom: 180px;
+}
+
+.story-distance-line {
+  position: relative;
+
+  max-width: 600px;
+
+  margin-top: 65px;
+
+  padding: 35px 40px;
+
+  border-left: 1px solid
+    rgba(157, 104, 104, 0.35);
+
+  background: rgba(255, 250, 246, 0.30);
+}
+
+.story-distance-line > span {
+  position: absolute;
+
+  left: -12px;
+  top: 21px;
+
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--story-bg);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 28px;
+
+  color: rgba(157, 104, 104, 0.45);
+}
+
+.story-distance-line p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 18px;
+
+  font-style: italic;
+
+  line-height: 1.7;
+
+  color: var(--story-soft);
+}
+
+
+/* =========================================================
+   QUIET SECTION
+   ========================================================= */
+
+.story-quiet {
+  position: relative;
+
+  min-height: 540px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.story-quiet::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 470px;
+  height: 340px;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(225, 183, 178, 0.13),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+}
+
+.story-quiet-heart {
+  position: relative;
+
+  margin-bottom: 22px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 42px;
+
+  font-weight: 300;
+
+  color: rgba(157, 104, 104, 0.32);
+
+  transform: rotate(-11deg);
+}
+
+.story-quiet h2 {
+  position: relative;
+
+  margin: 23px 0 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(45px, 6vw, 72px);
+
+  font-weight: 400;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.055em;
+
+  color: var(--story-brown);
+}
+
+.story-quiet h2 em {
+  color: var(--story-rose);
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   STILL TOO MUCH
+   ========================================================= */
+
+.story-chapter--still {
+  padding-top: 140px;
+
+  padding-bottom: 170px;
+}
+
+
+/* =========================================================
+   REASON SECTION
+   ========================================================= */
+
+.story-reason {
+  width: 100%;
+
+  padding: 150px 20px;
+
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(225, 183, 178, 0.15),
+      transparent 30%
+    ),
+    #f1e7de;
+}
+
+.story-reason-inner {
+  width: min(720px, 100%);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.story-reason h2 {
+  margin: 27px 0 45px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(47px, 6vw, 72px);
+
+  font-weight: 400;
+
+  line-height: 0.96;
+
+  letter-spacing: -0.055em;
+
+  color: var(--story-brown);
+}
+
+.story-reason-inner > p:not(.story-kicker) {
+  max-width: 570px;
+
+  margin: 0 auto 22px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.85;
+
+  color: #66524b;
+}
+
+.story-reason-inner > p:last-child {
+  margin-top: 40px;
+
+  font-size: 21px;
+
+  font-style: italic;
+}
+
+.story-reason-inner em {
+  color: var(--story-rose);
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   FINAL LETTER
+   ========================================================= */
+
+.story-final-letter {
+  width: calc(100% - 64px);
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 170px 0;
+}
+
+.story-final-letter-inner {
+  width: min(700px, 72%);
+
+  margin-left: 20%;
+}
+
+.story-final-letter h2 {
+  margin: 25px 0 45px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(50px, 6vw, 78px);
+
+  font-weight: 400;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.055em;
+
+  color: var(--story-brown);
+}
+
+.story-final-letter h2 em {
+  color: var(--story-rose);
+
+  font-weight: 400;
+}
+
+.story-final-copy {
+  max-width: 560px;
+}
+
+.story-final-copy p {
+  margin: 0 0 13px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: #66524b;
+}
+
+.story-final-signature {
+  margin-top: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.story-final-signature span {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  color: var(--story-muted);
+}
+
+.story-final-signature strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  font-style: italic;
+
+  font-weight: 400;
+
+  color: var(--story-rose);
+}
+
+
+/* =========================================================
+   ENDING
+   ========================================================= */
+
+.story-ending {
+  position: relative;
+
+  min-height: 720px;
+
+  padding: 130px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.story-ending::before {
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+  height: 470px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(225, 183, 178, 0.15),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+}
+
+.story-ending-heart {
+  position: relative;
+
+  margin-bottom: 20px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 46px;
+
+  font-weight: 300;
+
+  color: rgba(157, 104, 104, 0.33);
+
+  transform: rotate(-10deg);
+}
+
+.story-ending h2 {
+  position: relative;
+
+  margin: 25px 0 42px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(52px, 7vw, 88px);
+
+  font-weight: 400;
+
+  line-height: 0.90;
+
+  letter-spacing: -0.06em;
+
+  color: var(--story-brown);
+}
+
+.story-ending h2 em {
+  color: var(--story-rose);
+
+  font-weight: 400;
+}
+
+.story-ending-small {
+  position: relative;
+
+  max-width: 420px;
+
+  margin: 25px 0 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  line-height: 1.8;
+
+  color: var(--story-muted);
+}
+
+
+/* =========================================================
+   VIDEO SECTION
+   ========================================================= */
+
+.story-video-section {
+  width: calc(100% - 64px);
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 130px 0 140px;
+}
+
+.story-video-heading {
+  max-width: 650px;
+
+  margin-bottom: 50px;
+}
+
+.story-video-heading h2 {
+  margin: 22px 0 25px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(52px, 6vw, 80px);
+
+  font-weight: 400;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.055em;
+
+  color: var(--story-brown);
+}
+
+.story-video-heading h2 em {
+  color: var(--story-rose);
+
+  font-weight: 400;
+}
+
+.story-video-heading > p:last-child {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  color: var(--story-muted);
+}
+
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
+.story-video-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #302320;
+
+  box-shadow:
+    0 35px 80px rgba(82, 54, 46, 0.18);
+}
+
+.story-video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   VIDEO PLAY BUTTON
+   ========================================================= */
+
+.story-video-play {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  min-width: 220px;
+
+  padding: 23px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  border: 1px solid
+    rgba(255, 250, 247, 0.38);
+
+  border-radius: 2px;
+
+  background:
+    rgba(76, 57, 52, 0.75);
+
+  color: #fffaf7;
+
+  backdrop-filter: blur(9px);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.story-video-play:hover {
+  transform:
+    translate(-50%, -50%)
+    translateY(-3px);
+
+  background:
+    rgba(76, 57, 52, 0.90);
+}
+
+.story-video-play-icon {
+  font-size: 21px;
+
+  line-height: 1;
+}
+
+.story-video-play > span:not(.story-video-play-icon) {
+  font-family: Arial, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.story-video-play small {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 10px;
+
+  font-style: italic;
+
+  color: rgba(255, 250, 247, 0.65);
+}
+
+
+/* =========================================================
+   VIDEO HEARTS
+   ========================================================= */
+
+.story-video-heart {
+  position: absolute;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-weight: 300;
+
+  color: rgba(255, 250, 247, 0.38);
+
+  pointer-events: none;
+}
+
+.story-video-heart--one {
+  left: 5%;
+  top: 12%;
+
+  font-size: 36px;
+
+  transform: rotate(-12deg);
+}
+
+.story-video-heart--two {
+  right: 6%;
+  bottom: 12%;
+
+  font-size: 18px;
+
+  transform: rotate(12deg);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.story-footer {
+  width: calc(100% - 64px);
+  max-width: 1180px;
+
+  min-height: 100px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid var(--story-line);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--story-light);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .story-nav {
+    gap: 18px;
+  }
+
+  .story-chapter-content {
+    width: 75%;
+
+    margin-left: 17%;
+  }
+
+  .story-photo-pair {
+    height: 490px;
+  }
+
+  .story-pair-photo--one {
+    height: 370px;
+  }
+
+  .story-pair-photo--two {
+    height: 260px;
+  }
+
+  .story-final-letter-inner {
+    width: 75%;
+
+    margin-left: 17%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .story-topbar {
+    width: calc(100% - 36px);
+
+    height: 62px;
+  }
+
+  .story-nav {
+    display: none;
+  }
+
+
+  /* ---------- opening ---------- */
+
+  .story-opening {
+    min-height: 570px;
+  }
+
+  .story-opening-inner {
+    width: calc(100% - 34px);
+  }
+
+  .story-opening h1 {
+    font-size: 67px;
+
+    line-height: 0.86;
+  }
+
+  .story-opening-text {
+    font-size: 12px;
+  }
+
+  .story-heart--one {
+    left: 7%;
+
+    top: 22%;
+
+    font-size: 36px;
+  }
+
+  .story-heart--two {
+    right: 9%;
+
+    top: 30%;
+
+    font-size: 16px;
+  }
+
+
+  /* ---------- chapters ---------- */
+
+  .story-chapter {
+    width: calc(100% - 36px);
+
+    padding: 90px 0;
+  }
+
+  .story-chapter-number {
+    position: static;
+
+    margin-bottom: 34px;
+  }
+
+  .story-chapter-content {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+  .story-chapter-content h2 {
+    font-size: 48px;
+
+    line-height: 0.95;
+
+    margin-bottom: 32px;
+  }
+
+  .story-chapter-content > p:not(.story-kicker):not(.story-emotional-line) {
+    font-size: 15px;
+
+    line-height: 1.85;
+  }
+
+
+  /* ---------- photo ---------- */
+
+  .story-photo-section {
+    width: calc(100% - 36px);
+
+    margin-bottom: 90px;
+  }
+
+  .story-photo-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+
+  /* ---------- photo pair ---------- */
+
+  .story-photo-pair {
+    width: calc(100% - 30px);
+
+    height: 430px;
+
+    margin-bottom: 90px;
+  }
+
+  .story-pair-photo--one {
+    width: 78%;
+
+    height: 310px;
+
+    left: 2%;
+  }
+
+  .story-pair-photo--two {
+    width: 53%;
+
+    height: 210px;
+
+    right: 2%;
+  }
+
+  .story-pair-heart {
+    left: 39%;
+    top: 43%;
+
+    font-size: 25px;
+  }
+
+
+  /* ---------- hard section ---------- */
+
+  .story-hard-section {
+    min-height: 610px;
+  }
+
+  .story-hard-inner {
+    width: calc(100% - 36px);
+  }
+
+  .story-hard-inner h2 {
+    font-size: 58px;
+
+    margin-bottom: 45px;
+  }
+
+  .story-hard-copy p {
+    font-size: 14px;
+
+    line-height: 1.8;
+  }
+
+  .story-hard-section::before {
+    left: 3%;
+    top: 12%;
+
+    font-size: 55px;
+  }
+
+  .story-hard-section::after {
+    right: 8%;
+    bottom: 10%;
+
+    font-size: 24px;
+  }
+
+
+  /* ---------- distance ---------- */
+
+  .story-chapter--distance {
+    padding-top: 100px;
+
+    padding-bottom: 110px;
+  }
+
+  .story-distance-line {
+    margin-top: 45px;
+
+    padding: 25px 25px;
+  }
+
+  .story-distance-line p {
+    font-size: 16px;
+  }
+
+
+  /* ---------- quiet ---------- */
+
+  .story-quiet {
+    min-height: 440px;
+
+    padding: 70px 18px;
+  }
+
+  .story-quiet h2 {
+    font-size: 45px;
+  }
+
+
+  /* ---------- reason ---------- */
+
+  .story-reason {
+    padding: 100px 18px;
+  }
+
+  .story-reason h2 {
+    font-size: 47px;
+
+    margin-bottom: 35px;
+  }
+
+  .story-reason-inner > p:not(.story-kicker) {
+    font-size: 15px;
+  }
+
+
+  /* ---------- final letter ---------- */
+
+  .story-final-letter {
+    width: calc(100% - 36px);
+
+    padding: 100px 0;
+  }
+
+  .story-final-letter-inner {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+  .story-final-letter h2 {
+    font-size: 48px;
+  }
+
+  .story-final-copy p {
+    font-size: 15px;
+  }
+
+
+  /* ---------- ending ---------- */
+
+  .story-ending {
+    min-height: 580px;
+
+    padding: 100px 18px;
+  }
+
+  .story-ending h2 {
+    font-size: 56px;
+  }
+
+  .story-ending-small {
+    font-size: 12px;
+  }
+
+
+  /* ---------- video ---------- */
+
+  .story-video-section {
+    width: calc(100% - 36px);
+
+    padding: 90px 0 100px;
+  }
+
+  .story-video-heading h2 {
+    font-size: 53px;
+  }
+
+  .story-video-wrapper {
+    aspect-ratio: 4 / 5;
+  }
+
+  .story-video {
+    object-fit: cover;
+  }
+
+  .story-video-play {
+    min-width: 190px;
+
+    padding: 20px 25px;
+  }
+
+
+  /* ---------- footer ---------- */
+
+  .story-footer {
+    width: calc(100% - 36px);
+
+    min-height: 80px;
+
+    font-size: 6px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .story-opening h1 {
+    font-size: 57px;
+  }
+
+  .story-chapter-content h2 {
+    font-size: 43px;
+  }
+
+  .story-hard-inner h2 {
+    font-size: 51px;
+  }
+
+  .story-ending h2 {
+    font-size: 49px;
+  }
+
+  .story-video-heading h2 {
+    font-size: 47px;
+  }
+
+  .story-video-play {
+    min-width: 175px;
+  }
+
+}

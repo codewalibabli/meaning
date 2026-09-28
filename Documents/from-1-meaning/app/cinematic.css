@@ -1,0 +1,1650 @@
+.cine-home,
+.cine-story {
+  --cine-ivory: #f4efe7;
+  --cine-paper: #efe4d8;
+  --cine-rose: #9c6d64;
+  --cine-ink: #241c19;
+  --cine-night: #16110f;
+  --cine-line: rgba(36, 28, 25, 0.16);
+
+  background: var(--cine-paper);
+  color: var(--cine-ink);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+html:has(.cine-home),
+html:has(.cine-story) {
+  height: auto;
+}
+
+.cine-home .pin-spacer,
+.cine-story .pin-spacer {
+  display: block !important;
+}
+
+.cine-home a,
+.cine-story a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.cine-cover {
+  object-fit: cover;
+}
+
+.cine-kicker,
+.cine-scroll-hint,
+.cine-story-link,
+.cine-nav-links a,
+.cine-logout,
+.cine-memory-meta,
+.cine-memory-count,
+.cine-story-label,
+.cine-story-top,
+.cine-envelope-mark,
+.cine-capsule p,
+.cine-menu {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+
+.cine-kicker {
+  margin: 0 0 18px;
+  color: var(--cine-rose);
+}
+
+.cine-kicker--light {
+  color: rgba(247, 241, 235, 0.62);
+}
+
+.cine-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+
+  border-bottom: 1px solid rgba(247, 241, 235, 0.45);
+  padding-bottom: 8px;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cine-text-link--ink,
+.cine-row-links--ink .cine-text-link {
+  border-color: rgba(36, 28, 25, 0.4);
+}
+
+.cine-text-link span {
+  transition: transform 0.25s ease;
+}
+
+.cine-text-link:hover span {
+  transform: translate(4px, -3px);
+}
+
+.cine-row-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.cine-nav {
+  position: fixed;
+  inset: 0 0 auto;
+
+  z-index: 100;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  gap: 24px;
+  padding: 26px 5vw;
+
+  color: #f6efe8;
+  pointer-events: none;
+
+  transition:
+    color 0.35s ease,
+    background 0.35s ease;
+}
+
+.cine-nav--dark {
+  color: #241c19;
+}
+
+.cine-nav.is-solid {
+  background: rgba(18, 13, 11, 0.92);
+  color: #f6efe8;
+}
+
+.cine-nav a,
+.cine-nav button {
+  pointer-events: auto;
+}
+
+.cine-brand {
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.cine-nav-links {
+  display: flex;
+  justify-content: center;
+  gap: clamp(16px, 2vw, 32px);
+}
+
+.cine-nav-links a,
+.cine-logout,
+.cine-menu {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.78;
+}
+
+.cine-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cine-menu {
+  display: none;
+  width: 24px;
+  height: 18px;
+  padding: 0;
+}
+
+.cine-menu span {
+  display: block;
+  height: 1px;
+  margin: 5px 0;
+  background: currentColor;
+}
+
+
+/* =========================================================
+   SECTION BASE
+========================================================= */
+
+.cine-hero,
+.cine-couple,
+.cine-memories {
+  position: relative;
+}
+
+.cine-hero-scene,
+.cine-couple-scene,
+.cine-memories-scene,
+.cine-scrapbook-scene {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.cine-hero-scene {
+  position: relative;
+  isolation: isolate;
+
+  background: #1b1513;
+  color: #f7f1ea;
+}
+
+.cine-hero-image,
+.cine-love-image,
+.cine-story-hero-image,
+.cine-memory-visual,
+.cine-scrap-photo,
+.cine-story-photo,
+.cine-story-sticker {
+  position: relative;
+}
+
+.cine-hero-image,
+.cine-hero-veil,
+.cine-love-image,
+.cine-love-veil,
+.cine-story-hero-image,
+.cine-story-hero-veil {
+  position: absolute;
+  inset: 0;
+}
+
+.cine-hero-image {
+  z-index: 0;
+}
+
+.cine-hero-image img,
+.cine-love-image img,
+.cine-story-hero-image img {
+  transform-origin: center center;
+}
+
+.cine-hero-veil {
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 12, 10, 0.28),
+      transparent 28%,
+      rgba(18, 12, 10, 0.62)
+    ),
+    radial-gradient(
+      circle at 50% 40%,
+      transparent 0%,
+      rgba(18, 12, 10, 0.22) 100%
+    );
+}
+
+.cine-hero-copy {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  height: 100%;
+
+  text-align: center;
+}
+
+.cine-story-link {
+  position: absolute;
+
+  left: 5vw;
+  bottom: 38px;
+
+  z-index: 5;
+
+  display: inline-flex;
+  gap: 10px;
+
+  color: rgba(247, 241, 235, 0.72);
+}
+
+.cine-scroll-hint {
+  position: absolute;
+
+  left: 50%;
+  bottom: 38px;
+
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  color: rgba(247, 241, 235, 0.62);
+}
+
+.cine-hero-word {
+  position: absolute;
+
+  width: min(92vw, 1100px);
+
+  margin: 0;
+
+  opacity: 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(3.6rem, 10vw, 9.6rem);
+  font-weight: 400;
+
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+}
+
+.cine-hero-word--1 {
+  opacity: 1;
+}
+
+.cine-hero-word--2,
+.cine-hero-word--3 {
+  font-size: clamp(2.1rem, 5.4vw, 5.4rem);
+  font-style: italic;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   BABLI & KAJAL
+========================================================= */
+
+.cine-couple-scene {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  place-items: center;
+
+  background: #ead9cc;
+}
+
+.cine-couple-photo {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.16;
+
+  filter: saturate(0.65) contrast(1.05);
+}
+
+.cine-name-mask {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  max-width: 96vw;
+
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(4.4rem, 17vw, 17.5rem);
+  font-weight: 400;
+
+  line-height: 0.74;
+  letter-spacing: -0.08em;
+
+  text-align: center;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  background-size: 140%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  transform-origin: center center;
+}
+
+.cine-name-mask span {
+  display: block;
+}
+
+.cine-name-amp {
+  font-size: 0.28em;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  padding: 0.08em 0 0.12em;
+}
+
+.cine-couple-line {
+  position: absolute;
+
+  bottom: 8vh;
+
+  z-index: 3;
+
+  margin: 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+
+  color: rgba(36, 28, 25, 0.7);
+}
+
+
+/* =========================================================
+   MEMORIES
+   IMPORTANT: BACKGROUND LAYERING
+========================================================= */
+
+.cine-memories {
+  position: relative;
+  isolation: isolate;
+
+  background: var(--cine-night);
+  color: #f5efe8;
+}
+
+.cine-memories-scene {
+  position: relative;
+  isolation: isolate;
+
+  height: 100svh;
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   BACKGROUND IMAGE
+--------------------------------------------------------- */
+
+.cine-memory-background {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.cine-memory-background-image {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+.cine-memory-background-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 7, 6, 0.62) 0%,
+      rgba(10, 7, 6, 0.38) 45%,
+      rgba(10, 7, 6, 0.62) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 7, 6, 0.18),
+      rgba(10, 7, 6, 0.55)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   MEMORY CONTENT
+--------------------------------------------------------- */
+
+.cine-memory-frame {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.12fr)
+    minmax(280px, 0.88fr);
+
+  gap: clamp(24px, 4vw, 64px);
+
+  align-items: center;
+
+  height: 100%;
+
+  padding: 12vh 6vw 8vh;
+}
+
+
+/* ---------------------------------------------------------
+   MEMORY IMAGE CARD
+--------------------------------------------------------- */
+
+.cine-memory-media {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 18px);
+
+  height: min(74vh, 760px);
+  padding: clamp(12px, 1.6vw, 20px);
+
+  overflow: hidden;
+
+  border: 10px solid rgba(255, 250, 245, 0.12);
+
+  background: rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+
+  isolation: isolate;
+}
+
+.cine-memory-visual {
+  position: relative;
+  min-height: 180px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.cine-memory-visual-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cine-memory-visual img,
+.cine-memory-visual video,
+.cine-memory-fallback {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.cine-memory-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cine-memory-fallback {
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+
+/* ---------------------------------------------------------
+   MEMORY TEXT
+--------------------------------------------------------- */
+
+.cine-memory-rail {
+  position: relative;
+  z-index: 3;
+}
+
+.cine-memory-rail h2 {
+  margin: 0 0 14px;
+
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(2.6rem, 4vw, 4.4rem);
+
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.cine-memories-quote,
+.cine-memory-story,
+.cine-lead,
+.cine-body,
+.cine-scrapbook-line,
+.cine-empty-line,
+.cine-love-copy p,
+.cine-story-intro p,
+.cine-story-ending p,
+.cine-story-copy p {
+  font-family: var(--font-editorial), Georgia, serif;
+  line-height: 1.5;
+}
+
+.cine-memories-quote {
+  margin: 0 0 28px;
+
+  max-width: 26rem;
+
+  color: rgba(245, 239, 232, 0.68);
+
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+}
+
+
+/* ---------------------------------------------------------
+   MEMORY COPY STACK
+--------------------------------------------------------- */
+
+.cine-memory-copy-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.cine-memory-copy {
+  position: relative;
+  z-index: 2;
+
+  max-width: 460px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(245, 239, 232, 0.18);
+  opacity: 1;
+}
+
+.cine-memory-copy h3 {
+  margin: 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: clamp(2.1rem, 3.4vw, 3.6rem);
+
+  font-weight: 400;
+
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.cine-memory-meta {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin: 16px 0 14px;
+
+  color: rgba(245, 239, 232, 0.55);
+}
+
+.cine-memory-story {
+  margin: 0;
+
+  color: rgba(245, 239, 232, 0.72);
+
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+}
+
+.cine-memory-count {
+  margin: 16px 0 0;
+
+  color: rgba(245, 239, 232, 0.7);
+}
+
+
+/* ---------------------------------------------------------
+   MEMORY EMPTY
+--------------------------------------------------------- */
+
+.cine-memory-empty {
+  position: relative;
+  z-index: 3;
+
+  display: grid;
+  place-content: center;
+
+  gap: 18px;
+
+  height: 100%;
+
+  padding: 8vw;
+
+  text-align: center;
+}
+
+.cine-memory-empty h2,
+.cine-memory-empty p {
+  margin: 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+}
+
+.cine-memory-empty h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+
+  font-weight: 400;
+
+  line-height: 0.88;
+}
+
+
+/* =========================================================
+   SCRAPBOOK
+========================================================= */
+
+.cine-scrapbook {
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(255, 255, 255, 0.35),
+      transparent 28%
+    ),
+    #f3e7db;
+}
+
+.cine-scrapbook-scene {
+  display: grid;
+  align-content: start;
+
+  padding: 14vh 6vw 6vh;
+}
+
+.cine-scrapbook h2,
+.cine-letters h2,
+.cine-capsules h2,
+.cine-story-intro h2,
+.cine-story-ending h2,
+.cine-story-copy h3,
+.cine-love-copy h2 {
+  margin: 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.cine-scrapbook h2 {
+  font-size: clamp(3.4rem, 7vw, 7.2rem);
+}
+
+.cine-scrapbook-line {
+  max-width: 28rem;
+
+  margin: 18px 0 0;
+
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+
+  color: rgba(36, 28, 25, 0.72);
+}
+
+.cine-scrapbook-stage {
+  position: relative;
+
+  width: min(1120px, 100%);
+
+  height: min(62vh, 640px);
+
+  margin: 36px auto 0;
+}
+
+.cine-scrap-photo {
+  position: absolute;
+
+  overflow: hidden;
+
+  background: #d7c5b7;
+
+  border: 10px solid rgba(255, 252, 247, 0.92);
+
+  box-shadow: 0 18px 40px rgba(36, 28, 25, 0.14);
+}
+
+.cine-scrap-photo--1 {
+  top: 4%;
+  left: 4%;
+
+  width: 28%;
+  height: 42%;
+}
+
+.cine-scrap-photo--2 {
+  top: 10%;
+  left: 36%;
+
+  width: 26%;
+  height: 46%;
+
+  z-index: 2;
+}
+
+.cine-scrap-photo--3 {
+  top: 2%;
+  right: 6%;
+
+  width: 24%;
+  height: 40%;
+}
+
+.cine-scrap-photo--4 {
+  bottom: 6%;
+  left: 8%;
+
+  width: 24%;
+  height: 38%;
+}
+
+.cine-scrap-photo--5 {
+  bottom: 10%;
+  left: 38%;
+
+  width: 22%;
+  height: 34%;
+
+  z-index: 3;
+}
+
+.cine-scrap-photo--6 {
+  right: 7%;
+  bottom: 8%;
+
+  width: 27%;
+  height: 42%;
+}
+
+
+/* =========================================================
+   LETTERS / CAPSULES
+========================================================= */
+
+.cine-letters,
+.cine-capsules {
+  padding: 11vh 7vw 12vh;
+}
+
+.cine-letters {
+  background: #efe3d6;
+}
+
+.cine-letters h2,
+.cine-capsules h2 {
+  max-width: 14ch;
+
+  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
+}
+
+.cine-lead {
+  max-width: 28rem;
+
+  margin: 18px 0 0;
+
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+
+.cine-body {
+  max-width: 34rem;
+
+  margin: 14px 0 0;
+
+  font-size: 1.15rem;
+
+  color: rgba(36, 28, 25, 0.68);
+}
+
+.cine-lead--light,
+.cine-body--light {
+  color: rgba(245, 239, 232, 0.72);
+}
+
+.cine-envelope-row,
+.cine-capsule-row {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+  margin-top: 48px;
+}
+
+.cine-envelope {
+  position: relative;
+
+  min-height: 240px;
+
+  padding: 42px 24px 28px;
+
+  overflow: hidden;
+
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 27px,
+      rgba(36, 28, 25, 0.06) 28px
+    ),
+    #f7f1e8;
+
+  border: 1px solid rgba(36, 28, 25, 0.14);
+
+  box-shadow: 10px 12px 0 rgba(36, 28, 25, 0.04);
+}
+
+.cine-envelope-flap {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(156, 109, 100, 0.22),
+      transparent
+    );
+}
+
+.cine-envelope--1 {
+  transform: rotate(-1.6deg);
+}
+
+.cine-envelope--2 {
+  transform: rotate(1.2deg);
+  margin-top: 18px;
+}
+
+.cine-envelope--3 {
+  transform: rotate(-0.8deg);
+}
+
+.cine-envelope-mark {
+  color: var(--cine-rose);
+}
+
+.cine-envelope h3,
+.cine-capsule h3 {
+  margin: 28px 0 18px;
+
+  font-family: var(--font-editorial), Georgia, serif;
+
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+}
+
+.cine-envelope p {
+  margin: 0;
+
+  color: rgba(36, 28, 25, 0.55);
+
+  font-size: 0.95rem;
+}
+
+.cine-capsules {
+  background: #1d1714;
+
+  color: #f5efe8;
+}
+
+.cine-capsule {
+  min-height: 230px;
+
+  padding: 26px 22px;
+
+  border: 1px solid rgba(245, 239, 232, 0.14);
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cine-capsule.is-locked {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.cine-capsule-lock {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(245, 239, 232, 0.28);
+
+  border-radius: 999px;
+
+  font-size: 11px;
+}
+
+.cine-empty-line {
+  margin-top: 36px;
+
+  font-size: 1.4rem;
+}
+
+.cine-empty-line--light {
+  color: rgba(245, 239, 232, 0.7);
+}
+
+
+/* =========================================================
+   LOVE SECTION
+========================================================= */
+
+.cine-love {
+  position: relative;
+
+  min-height: 100svh;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background: #140f0d;
+}
+
+.cine-love-image {
+  z-index: 0;
+}
+
+.cine-love-veil {
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16, 11, 9, 0.18),
+      rgba(16, 11, 9, 0.68)
+    );
+}
+
+.cine-love-copy {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  color: #f7f1ea;
+}
+
+.cine-love-copy h2 {
+  font-size: clamp(4.4rem, 12vw, 10rem);
+}
+
+.cine-love-copy p {
+  margin-top: 22px;
+
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+
+  color: rgba(247, 241, 235, 0.8);
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.cine-story-top {
+  position: absolute;
+
+  z-index: 5;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 28px 5vw;
+
+  color: rgba(247, 241, 235, 0.78);
+}
+
+.cine-story-hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+.cine-story-hero-image {
+  z-index: 0;
+}
+
+.cine-story-hero-veil {
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16, 11, 9, 0.18),
+      rgba(16, 11, 9, 0.68)
+    );
+}
+
+.cine-story-hero-copy {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  color: #f7f1ea;
+}
+
+.cine-story-hero-copy h1 {
+  margin: 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+
+  font-size: clamp(4.8rem, 13vw, 12rem);
+
+  font-weight: 400;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.06em;
+}
+
+.cine-story-hero-copy p {
+  max-width: 26rem;
+
+  margin: 22px auto 0;
+
+  font-family: var(--font-editorial), Georgia, serif;
+
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.cine-story-intro,
+.cine-story-ending {
+  max-width: 860px;
+
+  margin: 0 auto;
+
+  padding: 14vh 6vw 4vh;
+
+  text-align: center;
+}
+
+.cine-story-intro h2,
+.cine-story-ending h2 {
+  font-size: clamp(3rem, 7vw, 6.4rem);
+}
+
+.cine-story-intro h2 span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--cine-rose);
+
+  font-style: italic;
+}
+
+.cine-story-intro p,
+.cine-story-ending p {
+  max-width: 34rem;
+
+  margin: 24px auto 0;
+
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+
+  color: rgba(36, 28, 25, 0.72);
+}
+
+.cine-story-chapter {
+  padding: 10vh 6vw 2vh;
+}
+
+.cine-story-num {
+  margin: 0 0 18px;
+
+  font-family: var(--font-editorial), Georgia, serif;
+
+  font-size: clamp(4rem, 10vw, 8rem);
+
+  line-height: 0.7;
+
+  letter-spacing: -0.08em;
+
+  color: rgba(156, 109, 100, 0.35);
+}
+
+.cine-story-split {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
+
+  gap: 6vw;
+
+  align-items: center;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.cine-story-split.is-flipped {
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+}
+
+.cine-story-copy h3 {
+  font-size: clamp(2.4rem, 4.6vw, 4.6rem);
+}
+
+.cine-story-label {
+  margin: 8px 0 22px;
+
+  color: var(--cine-rose);
+}
+
+.cine-story-copy p {
+  max-width: 36rem;
+
+  margin: 0 0 16px;
+
+  font-size: 1.12rem;
+
+  color: rgba(36, 28, 25, 0.74);
+}
+
+.cine-story-photo,
+.cine-story-sticker {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #d8c4b6;
+
+  border: 10px solid rgba(255, 252, 247, 0.94);
+
+  box-shadow: 0 16px 34px rgba(36, 28, 25, 0.12);
+}
+
+.cine-story-photo {
+  width: min(100%, 540px);
+
+  aspect-ratio: 4 / 5;
+}
+
+.cine-story-photo.is-right {
+  transform: rotate(2.4deg);
+
+  justify-self: end;
+}
+
+.cine-story-photo.is-left {
+  transform: rotate(-2.2deg);
+}
+
+.cine-story-photo.is-wide {
+  width: min(100%, 920px);
+
+  aspect-ratio: 16 / 9;
+
+  margin: 0 auto;
+
+  transform: rotate(-0.8deg);
+}
+
+.cine-story-overlap {
+  position: relative;
+
+  max-width: 920px;
+
+  margin: 0 auto;
+}
+
+.cine-story-copy--wide {
+  max-width: 46rem;
+}
+
+.cine-story-sticker {
+  width: 180px;
+  height: 220px;
+}
+
+.cine-story-sticker.is-overlap {
+  position: absolute;
+
+  right: 4%;
+  top: 18%;
+
+  transform: rotate(8deg);
+}
+
+.cine-story-featured {
+  position: relative;
+
+  max-width: 980px;
+
+  margin: 0 auto;
+}
+
+.cine-story-note {
+  position: absolute;
+
+  right: 6%;
+  top: 58%;
+
+  margin: 0;
+
+  font-family: var(--font-hand), "Segoe Script", cursive;
+
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+
+  color: #7d534c;
+
+  transform: rotate(-6deg);
+}
+
+.cine-story-constellation {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 0.7fr 1.1fr 0.7fr;
+
+  gap: 28px;
+
+  align-items: center;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+}
+
+.cine-story-photo.is-one {
+  width: 86%;
+
+  aspect-ratio: 3 / 4;
+
+  transform: rotate(-6deg);
+}
+
+.cine-story-photo.is-two {
+  width: 78%;
+
+  aspect-ratio: 1;
+
+  transform: rotate(5deg);
+}
+
+.cine-story-photo.is-three {
+  position: absolute;
+
+  left: 38%;
+  bottom: -8%;
+
+  width: 180px;
+
+  aspect-ratio: 4 / 5;
+
+  transform: rotate(-3deg);
+}
+
+.cine-story-ending {
+  padding-bottom: 16vh;
+}
+
+.cine-story-ending .cine-text-link {
+  margin: 36px auto 0;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 980px) {
+  .cine-memory-frame,
+  .cine-story-split,
+  .cine-story-split.is-flipped,
+  .cine-story-constellation {
+    grid-template-columns: 1fr;
+  }
+
+  .cine-envelope-row,
+  .cine-capsule-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cine-story-sticker.is-overlap {
+    position: relative;
+
+    right: auto;
+    top: auto;
+
+    margin: 28px 0 0 auto;
+  }
+
+  .cine-story-photo.is-three {
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+  .cine-nav {
+    grid-template-columns: 1fr auto;
+
+    padding: 18px 22px;
+  }
+
+  .cine-nav-links {
+    position: absolute;
+
+    top: 62px;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 16px 22px 20px;
+
+    background: rgba(20, 15, 13, 0.92);
+
+    color: #f6efe8;
+
+    mix-blend-mode: normal;
+  }
+
+  .cine-nav-links.is-open {
+    display: flex;
+  }
+
+  .cine-menu {
+    display: block;
+  }
+
+  .cine-hero-word {
+    font-size: clamp(2.8rem, 14vw, 4.6rem);
+  }
+
+  .cine-story-link {
+    left: 22px;
+    bottom: 22px;
+  }
+
+  .cine-scroll-hint {
+    bottom: 22px;
+  }
+
+  .cine-name-mask {
+    font-size: clamp(3.4rem, 22vw, 6.2rem);
+
+    padding: 0 12px;
+  }
+
+
+  /* MEMORY MOBILE */
+
+  .cine-memory-frame {
+    align-content: start;
+
+    gap: 22px;
+
+    padding: 18vh 22px 7vh;
+  }
+
+  .cine-memory-media {
+    height: 38vh;
+  }
+
+  .cine-memory-copy-stack {
+    min-height: 190px;
+  }
+
+  .cine-memories-quote {
+    display: none;
+  }
+
+  .cine-memory-rail h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .cine-memory-story {
+    display: -webkit-box;
+
+    -webkit-line-clamp: 4;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+  }
+
+
+  /* SCRAPBOOK */
+
+  .cine-scrapbook,
+  .cine-letters,
+  .cine-capsules,
+  .cine-story-chapter,
+  .cine-story-intro,
+  .cine-story-ending {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .cine-scrapbook-scene {
+    padding: 16vh 22px 7vh;
+
+    overflow: auto;
+  }
+
+  .cine-scrapbook-stage {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    height: auto;
+
+    max-height: 58vh;
+
+    overflow: hidden;
+
+    padding: 0 4vw;
+  }
+
+  .cine-scrap-photo {
+    position: relative;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    width: min(78%, 280px) !important;
+
+    height: 150px;
+
+    flex: 0 0 auto;
+  }
+
+  .cine-scrap-photo:nth-child(odd) {
+    align-self: flex-start;
+  }
+
+  .cine-scrap-photo:nth-child(even) {
+    align-self: flex-end;
+  }
+
+  .cine-scrap-photo:nth-child(3) {
+    width: min(70%, 240px) !important;
+
+    align-self: center;
+  }
+
+
+  /* LETTERS / CAPSULES */
+
+  .cine-envelope-row,
+  .cine-capsule-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cine-envelope--1,
+  .cine-envelope--2,
+  .cine-envelope--3 {
+    transform: none;
+
+    margin-top: 0;
+  }
+
+
+  /* STORY */
+
+  .cine-story-photo {
+    width: 100%;
+  }
+
+  .cine-story-constellation {
+    gap: 18px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cine-hero-word:not(.cine-hero-word--1),
+  .cine-memory-visual:not(:first-child),
+  .cine-memory-copy:not(:first-child) {
+    display: none;
+  }
+
+  .cine-hero-word--1,
+  .cine-memory-visual:first-child,
+  .cine-memory-copy:first-child {
+    opacity: 1 !important;
+
+    transform: none !important;
+  }
+}

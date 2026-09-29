@@ -250,7 +250,7 @@ export default function VaultHome({
           </div>
         </div>
       </section>
-      <StorySection memories={memories} />
+      <StorySection />
       <FullImageSection />
       <section
         className="book-section book-letters"

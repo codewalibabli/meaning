@@ -17,6 +17,7 @@ import type {
   MemoryPreview,
 } from "@/app/lib/cinematic/types";
 import "./vault-home.css";
+import { AnimatePresence, motion } from "framer-motion";
 
 type VaultHomeProps = {
   memories: MemoryPreview[];
@@ -24,13 +25,41 @@ type VaultHomeProps = {
   capsules: CapsulePreview[];
 };
 
-const STORY_LINES = [
-  ["Some days are ordinary.", "Until we remember them."],
-  ["Some photographs hold", "more than a thousand words."],
-  ["We were never trying", "to make memories.", "We were simply living."],
+const STORY_IMAGES = [
+  "/images/54.jpeg",
+  "/images/30.jpeg",
+  "/images/22.jpeg",
+  "/images/24.jpeg",
 ] as const;
 
-const VIDEO_SRC = "/images/3.mp4";
+const STORY_LINES = [
+  [
+    "Log kya jaane tere baare me",
+    "Koi mujhse puche ahemiyat teriii...💎",
+    "Mai khudko girwi rakh dungi",
+    "Agar log mere saamne lagaye kimat teri...",
+  ],
+  [
+    "Kabhi Kabhi ",
+    "Ek hi insan ki kami se",
+    "Puri Kaainaat khali lagti hai...",
+    "Aur tu toh sach me meri kaainaat hai yaar...❤️",
+  ],
+  [
+    "Ki tune hi apne kadam piche karliye.. ",
+    "Mujhme Kaha thi Himmat tujhe gawane ki?",
+    "Tere liye to mai har shaqs ko thukra deti",
+    "Tu zidd to karti mujhe paane ki....🤌",
+  ],
+  [
+    "Safar me tu kisi or se milta bhatakta bhi hai",
+    "Mujhe mat batana ye faisla tera hi hai",
+    "Rehne de ye vehem mujhko ki tu ",
+    "Sirf or sirf mera hi hai....🤌",
+  ],
+] as const;
+
+const VIDEO_SRC = "/images/1.mp4";
 const COVER_SRC = "/images/24.jpeg";
 
 function personLabel(value?: string) {
@@ -300,39 +329,205 @@ export default function VaultHome({
   );
 }
 
-function StorySection({ memories }: { memories: MemoryPreview[] }) {
-  const images = useMemo(() => collectMemoryImages(memories, 3), [memories]);
+function StorySection() {
+  const totalSlides = Math.min(STORY_IMAGES.length, STORY_LINES.length);
+
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % STORY_LINES.length);
-    }, 3000);
-    return () => window.clearInterval(timer);
-  }, []);
+    if (totalSlides <= 1) return;
 
-  const lines = STORY_LINES[index];
+    const timer = window.setInterval(() => {
+      setDirection(1);
+
+      setIndex((current) => (current + 1) % totalSlides);
+    }, 7000);
+
+    return () => window.clearInterval(timer);
+  }, [totalSlides]);
+
+  if (!STORY_IMAGES.length || !totalSlides) return null;
+
+  const currentIndex = index % totalSlides;
+  const lines = STORY_LINES[currentIndex];
+  const currentImage = STORY_IMAGES[currentIndex];
+
+  function goToSlide(nextIndex: number) {
+    if (nextIndex === currentIndex) return;
+
+    setDirection(nextIndex > currentIndex ? 1 : -1);
+    setIndex(nextIndex);
+  }
+
+  function goNext() {
+    setDirection(1);
+    setIndex((currentIndex + 1) % totalSlides);
+  }
+
+  function goPrevious() {
+    setDirection(-1);
+    setIndex((currentIndex - 1 + totalSlides) % totalSlides);
+  }
 
   return (
     <section className="book-story" aria-labelledby="story-heading">
-      {images.map((src, imageIndex) => (
-        <Image
-          key={src}
-          src={src}
-          alt=""
-          fill
-          sizes="100vw"
-          className={`book-story-image ${imageIndex === index % images.length ? "is-active" : ""}`}
-        />
-      ))}
-      <div className="book-story-veil" aria-hidden="true" />
-      <div className="book-story-copy" aria-live="polite">
-        <p id="story-heading" className="book-story-kicker">
-          A changing page
-        </p>
-        {lines.map((line) => (
-          <span key={line}>{line}</span>
-        ))}
+      <div className="book-story-inner">
+        {/* Decorative hearts */}
+
+        <span
+          className="book-story-heart book-story-heart--one"
+          aria-hidden="true"
+        >
+          ♡
+        </span>
+
+        <span
+          className="book-story-heart book-story-heart--two"
+          aria-hidden="true"
+        >
+          ♡
+        </span>
+
+        <span
+          className="book-story-heart book-story-heart--three"
+          aria-hidden="true"
+        >
+          ♡
+        </span>
+
+        <span
+          className="book-story-heart book-story-heart--four"
+          aria-hidden="true"
+        >
+          ♡
+        </span>
+
+        {/* LEFT — SHAYARI */}
+
+        <div className="book-story-copy">
+          <p id="story-heading" className="book-story-kicker">
+            A changing page
+          </p>
+
+          <AnimatePresence mode="wait" initial={false} custom={direction}>
+            <motion.div
+              key={`copy-${currentIndex}`}
+              className="book-story-text"
+              custom={direction}
+              initial={{
+                opacity: 0,
+                x: direction > 0 ? 28 : -28,
+                y: 8,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                x: direction > 0 ? -28 : 28,
+                y: -8,
+              }}
+              transition={{
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              {lines.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="book-story-line">
+            <span />
+            <span>♡</span>
+            <span />
+          </div>
+
+          {/* Slide controls */}
+
+          <div className="book-story-controls">
+            <button
+              type="button"
+              className="book-story-control-arrow"
+              onClick={goPrevious}
+              aria-label="Previous memory"
+            >
+              ←
+            </button>
+
+            <div className="book-story-progress" aria-label="Story slides">
+              {Array.from({ length: totalSlides }).map((_, dotIndex) => (
+                <button
+                  key={dotIndex}
+                  type="button"
+                  className={dotIndex === currentIndex ? "is-active" : ""}
+                  onClick={() => goToSlide(dotIndex)}
+                  aria-label={`Go to memory ${dotIndex + 1}`}
+                  aria-current={dotIndex === currentIndex ? "true" : undefined}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="book-story-control-arrow"
+              onClick={goNext}
+              aria-label="Next memory"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        {/* RIGHT — PHOTO */}
+
+        <div className="book-story-photo-area">
+          <div className="book-story-photo-stack">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={`photo-${currentIndex}`}
+                className="book-story-photo is-active"
+                custom={direction}
+                initial={{
+                  opacity: 0,
+                  x: direction > 0 ? 80 : -80,
+                  rotate: direction > 0 ? 3 : -3,
+                  scale: 0.96,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  rotate: -1,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  x: direction > 0 ? -80 : 80,
+                  rotate: direction > 0 ? -3 : 3,
+                  scale: 0.96,
+                }}
+                transition={{
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <div className="book-story-photo-paper">
+                  <Image
+                    src={currentImage}
+                    alt=""
+                    fill
+                    sizes="(max-width: 800px) 90vw, 52vw"
+                    className="book-story-photo-image"
+                  />
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -384,7 +579,7 @@ function FullImageSection() {
   return (
     <section className="memento-full-image">
       <Image
-        src="/hero.png"
+        src="/friend.png"
         alt=""
         width={1920}
         height={1080}

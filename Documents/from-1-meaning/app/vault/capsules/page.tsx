@@ -5,5 +5,9 @@ import { listCapsules, serializeCapsule } from "@/app/lib/server/capsules";
 export default async function CapsulesPage() {
   await requireVaultSession();
   const capsules = await listCapsules();
-  return <CapsuleArchive capsules={capsules.map((capsule) => serializeCapsule(capsule))} />;
+  return (
+    <CapsuleArchive
+      capsules={capsules.map((capsule) => serializeCapsule(capsule))}
+    />
+  );
 }

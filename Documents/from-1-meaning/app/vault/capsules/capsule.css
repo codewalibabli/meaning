@@ -1,0 +1,821 @@
+/* =========================================================
+   CAPSULE ARCHIVE
+   ========================================================= */
+
+.capsules-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 10% 12%,
+      rgba(225, 183, 178, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(214, 181, 158, 0.14),
+      transparent 34%
+    ),
+    #f8f1ea;
+  color: #4c3934;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TOP
+   ========================================================= */
+
+.capsules-top {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 28px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(123, 94, 84, 0.12);
+}
+
+.capsules-brand {
+  color: #4c3934;
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+
+.capsules-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.capsules-nav a {
+  color: #927d75;
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  transition: color 0.2s ease;
+}
+
+.capsules-nav a:hover {
+  color: #76544e;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.capsules-intro {
+  position: relative;
+
+  width: min(1180px, calc(100% - 64px));
+  min-height: 470px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+.capsules-intro-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.capsules-kicker {
+  margin: 0 0 22px;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  color: #9b8178;
+}
+
+.capsules-intro h1 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(64px, 8vw, 105px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+
+  color: #4c3934;
+}
+
+.capsules-intro h1 em {
+  color: #9d6868;
+  font-weight: 400;
+}
+
+.capsules-description {
+  margin: 30px 0 30px;
+
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.75;
+
+  color: #927d75;
+}
+
+.capsules-create-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 48px;
+  padding: 0 22px;
+
+  background: #76544e;
+  color: #fffaf7;
+
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  box-shadow: 0 12px 24px rgba(118, 84, 78, 0.17);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.capsules-create-button span {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.capsules-create-button:hover {
+  transform: translateY(-2px);
+  background: #674842;
+  box-shadow: 0 16px 30px rgba(118, 84, 78, 0.22);
+}
+
+
+/* =========================================================
+   INTRO DECORATION
+   ========================================================= */
+
+.capsules-intro-mark {
+  position: absolute;
+  right: 7%;
+  top: 50%;
+
+  width: 390px;
+  height: 390px;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.capsules-large-heart {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Georgia, serif;
+  font-size: 390px;
+  font-weight: 300;
+  line-height: 0.7;
+
+  color: transparent;
+
+  -webkit-text-stroke: 1px rgba(157, 105, 105, 0.17);
+}
+
+.capsules-small-heart {
+  position: absolute;
+  top: 45px;
+  right: 25px;
+
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: rgba(157, 105, 105, 0.35);
+
+  transform: rotate(15deg);
+}
+
+
+/* =========================================================
+   ARCHIVE
+   ========================================================= */
+
+.capsules-archive {
+  width: min(1180px, calc(100% - 64px));
+  margin: 20px auto 0;
+}
+
+.capsules-archive-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 34px;
+}
+
+.capsules-archive-heading .capsules-kicker {
+  margin-bottom: 10px;
+}
+
+.capsules-archive-heading h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: #4c3934;
+}
+
+.capsules-archive-heading > span {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b09a91;
+}
+
+
+/* =========================================================
+   CAPSULE PAPERS
+   ========================================================= */
+
+.capsules-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.capsule-paper {
+  position: relative;
+
+  min-height: 370px;
+  padding: 38px 42px 34px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(123, 94, 84, 0.12);
+
+  box-shadow:
+    0 24px 55px rgba(82, 54, 46, 0.07),
+    0 5px 16px rgba(82, 54, 46, 0.04);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.capsule-paper:hover {
+  transform: translateY(-5px) rotate(0deg);
+  box-shadow:
+    0 30px 65px rgba(82, 54, 46, 0.10),
+    0 8px 20px rgba(82, 54, 46, 0.05);
+}
+
+.capsule-paper--cream {
+  background: #fffaf5;
+  transform: rotate(-0.35deg);
+}
+
+.capsule-paper--rose {
+  background: #f3e3df;
+  transform: rotate(0.35deg);
+}
+
+.capsule-paper-heart {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+
+  font-family: Georgia, serif;
+  font-size: 22px;
+  color: rgba(157, 105, 105, 0.28);
+
+  transform: rotate(12deg);
+}
+
+.capsule-paper-number {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+
+  font-family: Georgia, serif;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: rgba(157, 105, 105, 0.07);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.capsule-paper-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 24px;
+
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  color: #9b8178;
+}
+
+.capsule-status-symbol {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: #9d6868;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.capsule-paper h3 {
+  position: relative;
+  z-index: 2;
+
+  max-width: 430px;
+
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+
+  color: #4c3934;
+}
+
+
+/* =========================================================
+   RULE
+   ========================================================= */
+
+.capsule-paper-rule {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 28px 0;
+}
+
+.capsule-paper-rule span:first-child,
+.capsule-paper-rule span:last-child {
+  width: 34px;
+  height: 1px;
+  background: rgba(155, 129, 120, 0.3);
+}
+
+.capsule-paper-rule span:nth-child(2) {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  color: #9d6868;
+}
+
+
+/* =========================================================
+   DATES
+   ========================================================= */
+
+.capsule-paper-dates {
+  display: flex;
+  gap: 42px;
+}
+
+.capsule-paper-dates div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.capsule-paper-dates span {
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+
+  color: #a58f87;
+}
+
+.capsule-paper-dates strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  color: #67514a;
+}
+
+
+/* =========================================================
+   LINK
+   ========================================================= */
+
+.capsule-paper-link {
+  position: absolute;
+  left: 42px;
+  bottom: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #76544e;
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.capsule-paper-link span {
+  font-size: 15px;
+}
+
+.capsule-paper-link:hover {
+  gap: 13px;
+  color: #5f403b;
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.capsules-empty {
+  width: min(1180px, calc(100% - 64px));
+  margin: 10px auto 0;
+}
+
+.capsules-empty-paper {
+  position: relative;
+
+  max-width: 720px;
+  min-height: 330px;
+
+  margin: 0 auto;
+  padding: 65px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: #fffaf5;
+  border: 1px solid rgba(123, 94, 84, 0.12);
+
+  box-shadow:
+    0 24px 55px rgba(82, 54, 46, 0.07),
+    0 5px 16px rgba(82, 54, 46, 0.04);
+
+  transform: rotate(-0.4deg);
+}
+
+.capsules-empty-number {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+
+  font-family: Georgia, serif;
+  font-size: 11px;
+  color: #b09a91;
+}
+
+.capsules-empty-icon {
+  margin-bottom: 14px;
+
+  font-family: Georgia, serif;
+  font-size: 25px;
+  color: #9d6868;
+}
+
+.capsules-empty-paper .capsules-kicker {
+  margin-bottom: 12px;
+}
+
+.capsules-empty-paper h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.capsules-empty-paper > p:not(.capsules-kicker) {
+  margin: 18px 0 25px;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+
+  color: #927d75;
+}
+
+.capsules-empty-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #76544e;
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.capsules-empty-link:hover {
+  color: #5f403b;
+}
+
+
+/* =========================================================
+   CLOSING
+   ========================================================= */
+
+.capsules-closing {
+  position: relative;
+
+  width: min(1180px, calc(100% - 64px));
+  min-height: 430px;
+
+  margin: 100px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.capsules-closing-heart {
+  position: absolute;
+
+  font-family: Georgia, serif;
+  font-size: 310px;
+  font-weight: 300;
+  line-height: 0.7;
+
+  color: transparent;
+
+  -webkit-text-stroke: 1px rgba(157, 105, 105, 0.14);
+
+  pointer-events: none;
+}
+
+.capsules-closing .capsules-kicker,
+.capsules-closing h2,
+.capsules-closing > p:last-child {
+  position: relative;
+  z-index: 2;
+}
+
+.capsules-closing h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.capsules-closing h2 em {
+  color: #9d6868;
+  font-weight: 400;
+}
+
+.capsules-closing > p:last-child {
+  margin: 22px 0 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #927d75;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.capsules-footer {
+  width: min(1180px, calc(100% - 64px));
+
+  margin: 0 auto;
+  padding: 28px 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border-top: 1px solid rgba(123, 94, 84, 0.12);
+
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #b09a91;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .capsules-top,
+  .capsules-intro,
+  .capsules-archive,
+  .capsules-empty,
+  .capsules-closing,
+  .capsules-footer {
+    width: calc(100% - 32px);
+  }
+
+  .capsules-nav {
+    display: none;
+  }
+
+  .capsules-intro {
+    min-height: 510px;
+  }
+
+  .capsules-intro-mark {
+    right: -55px;
+    top: 55%;
+    width: 280px;
+    height: 280px;
+    opacity: 0.8;
+  }
+
+  .capsules-large-heart {
+    font-size: 280px;
+  }
+
+  .capsules-list {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .capsule-paper {
+    min-height: 350px;
+    padding: 32px 28px;
+  }
+
+  .capsule-paper-link {
+    left: 28px;
+    bottom: 27px;
+  }
+
+  .capsule-paper-dates {
+    gap: 25px;
+  }
+
+  .capsules-closing {
+    min-height: 350px;
+    margin-top: 70px;
+  }
+
+  .capsules-closing-heart {
+    font-size: 250px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .capsules-top {
+    padding: 22px 0;
+  }
+
+  .capsules-intro {
+    min-height: 470px;
+  }
+
+  .capsules-intro h1 {
+    font-size: 62px;
+  }
+
+  .capsules-description {
+    font-size: 12px;
+  }
+
+  .capsules-intro-mark {
+    right: -85px;
+    top: 58%;
+    transform: translateY(-50%) scale(0.8);
+  }
+
+  .capsules-archive-heading h2 {
+    font-size: 27px;
+  }
+
+  .capsule-paper {
+    min-height: 345px;
+    padding: 30px 24px;
+  }
+
+  .capsule-paper h3 {
+    font-size: 31px;
+  }
+
+  .capsule-paper-dates {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .capsule-paper-link {
+    left: 24px;
+  }
+
+  .capsules-empty-paper {
+    padding: 55px 24px;
+  }
+
+  .capsules-empty-paper h2 {
+    font-size: 31px;
+  }
+
+  .capsules-footer {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1.6;
+  }
+}
+
+
+
+.capsule-editor-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 12%,
+      rgba(225, 183, 178, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(214, 181, 158, 0.14),
+      transparent 34%
+    ),
+    #f8f1ea;
+
+  color: #4c3934;
+}

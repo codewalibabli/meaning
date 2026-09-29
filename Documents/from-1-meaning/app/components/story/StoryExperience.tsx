@@ -42,7 +42,20 @@ export default function StoryPage() {
           <Link href="/vault/capsules">Capsules</Link>
         </nav>
       </header>
-
+      <section className="story-hero-image">
+        <div className="story-hero-image__frame">
+          <div className="story-hero-image__photo-wrap">
+            <Image
+              src="/story.png"
+              alt="Babli and Kajal"
+              fill
+              priority
+              sizes="(max-width: 900px) 94vw, 1050px"
+              className="story-hero-image__photo"
+            />
+          </div>
+        </div>
+      </section>
       {/* =====================================================
           OPENING
       ===================================================== */}

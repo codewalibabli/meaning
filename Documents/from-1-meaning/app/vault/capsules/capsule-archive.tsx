@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import "./capsule.css";
+import ArchiveClosingImage from "@/app/components/ArchieveClosingImage";
 
 type Capsule = {
   _id: string;
@@ -121,17 +122,28 @@ export default function CapsuleArchive({ capsules }: { capsules: Capsule[] }) {
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
-                {/* STATUS */}
-                <div className="capsule-paper-status">
-                  <span className="capsule-status-symbol">
-                    {capsule.locked ? "◇" : "✦"}
+                <div
+                  className={`capsule-paper-status ${
+                    capsule.locked
+                      ? "capsule-paper-status--locked"
+                      : "capsule-paper-status--opened"
+                  }`}
+                >
+                  <span className="capsule-status-symbol" aria-hidden="true">
+                    {capsule.locked ? "🔒" : "🔓"}
                   </span>
 
-                  <span>
-                    {capsule.locked
-                      ? "sealed for another day"
-                      : "this day has arrived"}
-                  </span>
+                  <div className="capsule-status-copy">
+                    <span className="capsule-status-label">
+                      {capsule.locked ? "SEALED" : "OPENED"}
+                    </span>
+
+                    <span className="capsule-status-text">
+                      {capsule.locked
+                        ? "Thoda intezar kar meri fuggiiii...🫣"
+                        : "Madamji intezar khatam huaa..."}
+                    </span>
+                  </div>
                 </div>
 
                 {/* TITLE */}
@@ -150,9 +162,14 @@ export default function CapsuleArchive({ capsules }: { capsules: Capsule[] }) {
                     <strong>{formatDate(capsule.createdAt)}</strong>
                   </div>
 
-                  <div>
-                    <span>{capsule.locked ? "Opens" : "Opened"}</span>
-
+                  <div
+                    className={
+                      capsule.locked
+                        ? "capsule-date-highlight capsule-date-highlight--locked"
+                        : "capsule-date-highlight capsule-date-highlight--opened"
+                    }
+                  >
+                    <span>{capsule.locked ? "Opens on" : "Opened on"}</span>
                     <strong>{formatDate(capsule.unlockAt)}</strong>
                   </div>
                 </div>
@@ -196,6 +213,7 @@ export default function CapsuleArchive({ capsules }: { capsules: Capsule[] }) {
         <span>♡</span>
         <span>words for another day</span>
       </footer>
+      <ArchiveClosingImage />
     </main>
   );
 }

@@ -2013,18 +2013,18 @@ body {
 
   .memory-cards {
     display: grid;
-    grid-template-columns: repeat(2, 145px);
-    justify-content: center;
-    gap: 20px 14px;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    gap: 20px;
     width: 100%;
   }
 
   .memory-card {
-    width: 145px;
-    min-width: 145px;
-    max-width: 145px;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
     box-sizing: border-box;
-    justify-self: center;
+    justify-self: stretch;
     padding: 6px 6px 11px;
   }
 
@@ -2036,7 +2036,7 @@ body {
   .memory-card-6 { transform: rotate(1.2deg); }
 
   .memory-card-image {
-    height: 120px;
+    height: auto;
   }
 
   .memory-card-content {
@@ -2171,23 +2171,6 @@ body {
 @media (max-width: 390px) {
   .book-nav-links {
     gap: 6px 9px;
-  }
-
-  .memory-cards {
-    gap: 20px 14px;
-  }
-
-  .memory-card {
-    min-width: 145px;
-    padding: 6px 6px 11px;
-  }
-
-  .memory-card-content h3 {
-    font-size: 13px;
-  }
-
-  .memory-card-meta {
-    gap: 4px;
   }
 }
 

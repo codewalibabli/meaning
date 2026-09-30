@@ -59,7 +59,7 @@ const STORY_LINES = [
   ],
 ] as const;
 
-const VIDEO_SRC = "/images/1.mp4";
+const VIDEO_SRC = "/our.mp4";
 const COVER_SRC = "/images/24.jpeg";
 
 function personLabel(value?: string) {
@@ -251,7 +251,7 @@ export default function VaultHome({
         </div>
       </section>
       <StorySection />
-      <FullImageSection />
+
       <section
         className="book-section book-letters"
         aria-labelledby="letters-heading"
@@ -325,6 +325,7 @@ export default function VaultHome({
           Open the capsules
         </Link>
       </section>
+      <FullImageSection />
     </main>
   );
 }
@@ -579,7 +580,7 @@ function FullImageSection() {
   return (
     <section className="memento-full-image">
       <Image
-        src="/friend.png"
+        src="/hero.png"
         alt=""
         width={1920}
         height={1080}

@@ -24,81 +24,183 @@ function formatDate(date: string) {
 
 export default function CapsuleReader({ capsule }: { capsule: Capsule }) {
   const router = useRouter();
+
   const [confirming, setConfirming] = useState(false);
   const [deleting, setDeleting] = useState(false);
+
   async function remove() {
     setDeleting(true);
-    const response = await fetch(`/api/capsules/${capsule._id}`, {
-      method: "DELETE",
-      credentials: "include",
-    });
-    if (response.ok) {
-      router.push("/vault/capsules");
-      router.refresh();
-    } else {
+
+    try {
+      const response = await fetch(`/api/capsules/${capsule._id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        router.push("/vault/capsules");
+        router.refresh();
+      } else {
+        setDeleting(false);
+        setConfirming(false);
+      }
+    } catch {
       setDeleting(false);
       setConfirming(false);
     }
   }
+
+  const isLocked = capsule.locked;
+
   return (
     <main
-      className={`capsule-reader-page ${capsule.locked ? "is-locked" : "is-open"}`}
+      className={`capsule-reader-page ${isLocked ? "is-locked" : "is-open"}`}
     >
+      {/* ------------------------------------------------
+          TOP
+      ------------------------------------------------ */}
+
       <header className="capsule-reader-top">
-        <Link href="/vault/capsules">Capsules / back to the archive</Link>
-        <span>{capsule.locked ? "Sealed memory" : "Opened memory"}</span>
+        <Link href="/vault/capsules">
+          Capsules <span>/ back to the archive</span>
+        </Link>
+
+        <span>{isLocked ? "A sealed page" : "A page opened"}</span>
       </header>
-      <article className="capsule-reader-paper">
-        <div className="capsule-reader-icon">{capsule.locked ? "🔒" : "✦"}</div>
-        <p className="home-eyebrow">
-          {capsule.locked
-            ? "Not yet / waiting for its moment"
-            : `Opened / ${formatDate(capsule.unlockAt)}`}
-        </p>
-        <h1>{capsule.title}</h1>
-        {capsule.locked ? (
-          <>
-            <div className="capsule-reader-rule" />
-            <p className="capsule-locked-message">
-              Some words are meant to wait.
-            </p>
-            <p className="capsule-unlock-date">
-              This capsule opens on
-              <br />
-              <strong>{formatDate(capsule.unlockAt)}</strong>
-            </p>
-            <Link className="capsule-reader-back" href="/vault/capsules">
-              Return to the archive <span>↗</span>
-            </Link>
-          </>
-        ) : (
-          <>
-            <div className="capsule-reader-rule" />
-            <p className="capsule-written-date">
-              Written {formatDate(capsule.createdAt)}
-            </p>
-            <div className="capsule-reader-content">
-              {capsule.content?.split("\n").map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+
+      {/* ------------------------------------------------
+          READER
+      ------------------------------------------------ */}
+
+      <section className="capsule-reader-shell">
+        <article className="capsule-reader-paper">
+          {/* Decorative number */}
+
+          <span className="capsule-reader-number" aria-hidden="true">
+            {isLocked ? "04" : "04"}
+          </span>
+
+          {/* Heart */}
+
+          <span className="capsule-reader-heart" aria-hidden="true">
+            ♡
+          </span>
+
+          {/* Status */}
+
+          <div className="capsule-reader-status">
+            <span className="capsule-reader-status-line" />
+
+            <span>
+              {isLocked ? "waiting for its moment" : "the moment has arrived"}
+            </span>
+
+            <span className="capsule-reader-status-line" />
+          </div>
+
+          {/* Title */}
+
+          <h1>{capsule.title}</h1>
+
+          {/* ------------------------------------------------
+              LOCKED
+          ------------------------------------------------ */}
+
+          {isLocked ? (
+            <div className="capsule-reader-locked">
+              <div className="capsule-reader-symbol">♡</div>
+
+              <p className="capsule-reader-locked-title">
+                Some words
+                <br />
+                are meant to wait.
+              </p>
+
+              <div className="capsule-reader-rule">
+                <span />
+                <span>♡</span>
+                <span />
+              </div>
+
+              <p className="capsule-reader-unlock-label">This page opens on</p>
+
+              <p className="capsule-reader-unlock-date">
+                {formatDate(capsule.unlockAt)}
+              </p>
+
+              <p className="capsule-reader-locked-note">
+                Until then, its words remain quietly sealed.
+              </p>
+
+              <Link className="capsule-reader-back" href="/vault/capsules">
+                Return to the archive
+                <span>↗</span>
+              </Link>
             </div>
-            <p className="capsule-reader-signoff">kept for the right day.</p>
-          </>
-        )}
-        <div className="capsule-reader-actions">
-          {capsule.locked && (
-            <Link href={`/vault/capsules/${capsule._id}/edit`}>
-              Edit capsule <span>↗</span>
-            </Link>
+          ) : (
+            /* ------------------------------------------------
+               OPENED
+            ------------------------------------------------ */
+
+            <div className="capsule-reader-open">
+              <div className="capsule-reader-open-meta">
+                <span>Written {formatDate(capsule.createdAt)}</span>
+
+                <span>Opened {formatDate(capsule.unlockAt)}</span>
+              </div>
+
+              <div className="capsule-reader-rule">
+                <span />
+                <span>♡</span>
+                <span />
+              </div>
+
+              <div className="capsule-reader-content">
+                {capsule.content?.split("\n").map((paragraph, index) => (
+                  <p key={`${paragraph}-${index}`}>{paragraph}</p>
+                ))}
+              </div>
+
+              <div className="capsule-reader-signoff">
+                <span>kept for the right day.</span>
+                <strong>♡</strong>
+              </div>
+            </div>
           )}
-          <button type="button" onClick={() => setConfirming(true)}>
-            Delete capsule
-          </button>
+
+          {/* ------------------------------------------------
+              ACTIONS
+          ------------------------------------------------ */}
+
+          <div className="capsule-reader-actions">
+            {isLocked && (
+              <Link href={`/vault/capsules/${capsule._id}/edit`}>
+                Edit capsule
+                <span>↗</span>
+              </Link>
+            )}
+
+            <button type="button" onClick={() => setConfirming(true)}>
+              Delete capsule
+            </button>
+          </div>
+        </article>
+      </section>
+
+      {/* ------------------------------------------------
+          COMMENTS
+      ------------------------------------------------ */}
+
+      {!isLocked && (
+        <div className="capsule-reader-comments">
+          <CommentSection targetId={capsule._id} targetType="capsule" />
         </div>
-      </article>
-      {!capsule.locked && (
-        <CommentSection targetId={capsule._id} targetType="capsule" />
       )}
+
+      {/* ------------------------------------------------
+          DELETE CONFIRMATION
+      ------------------------------------------------ */}
+
       {confirming && (
         <div
           className="capsule-confirm"
@@ -106,14 +208,32 @@ export default function CapsuleReader({ capsule }: { capsule: Capsule }) {
           aria-modal="true"
           aria-labelledby="capsule-confirm-title"
         >
-          <div>
-            <p className="home-eyebrow">A small goodbye</p>
+          <div className="capsule-confirm-paper">
+            <span className="capsule-confirm-heart" aria-hidden="true">
+              ♡
+            </span>
+
+            <p className="capsule-confirm-kicker">a small goodbye</p>
+
             <h2 id="capsule-confirm-title">Let this capsule go?</h2>
-            <p>It will leave the archive, unopened or not.</p>
-            <div>
+
+            <p className="capsule-confirm-copy">
+              It will leave the archive,
+              <br />
+              unopened or not.
+            </p>
+
+            <div className="capsule-confirm-rule">
+              <span />
+              <span>♡</span>
+              <span />
+            </div>
+
+            <div className="capsule-confirm-actions">
               <button type="button" onClick={() => setConfirming(false)}>
                 Keep it
               </button>
+
               <button type="button" disabled={deleting} onClick={remove}>
                 {deleting ? "Letting go..." : "Delete"}
               </button>

@@ -157,12 +157,12 @@ export default function CommentSection({
 
       <header className="memento-notes__header">
         <div>
-          <p className="memento-notes__eyebrow">A few words left here</p>
+          <p className="memento-notes__eyebrow">You Can Comment on it</p>
 
           <h3>
-            Notes from
+            Aap ki kya raai hai?
             <br />
-            <em>us.</em>
+            <em>so write it down!!</em>
           </h3>
         </div>
 
@@ -182,9 +182,9 @@ export default function CommentSection({
               ♡
             </span>
 
-            <p>Nothing has been left here yet.</p>
+            <p>Aapne kuch kaha hi nhi ?? Ya abhi padha hi nhi?.</p>
 
-            <span>Maybe you have something to say.</span>
+            <span>Ya shayad kuch kehna hi nhi chahte aap.. Koi baat nhi</span>
           </div>
         ) : (
           comments.map((comment, index) => (
@@ -226,13 +226,33 @@ export default function CommentSection({
 
       <div className="memento-note-form">
         <div className="memento-note-form__intro">
-          <p>leave something behind</p>
+          <p>Fikra mat kar jaana..</p>
 
           <h4>
-            There is always
+            Tujhe bolna ka pura haq haiii...
             <br />
-            <em>room for one more.</em>
+            <em>Jitni gaali dena hai de bas maaa pe nhi honi chahiye...😅</em>
           </h4>
+        </div>
+        <div className="memento-note-author">
+          <span>Madam pehle apna naam select karlo..👉</span>
+
+          <div
+            className="memento-note-author__options"
+            role="group"
+            aria-label="Choose note author"
+          >
+            {(["babli", "kajal"] as const).map((option) => (
+              <button
+                key={option}
+                type="button"
+                className={author === option ? "is-active" : ""}
+                onClick={() => setAuthor(option)}
+              >
+                {authorName(option)}
+              </button>
+            ))}
+          </div>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -240,7 +260,7 @@ export default function CommentSection({
             <textarea
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
-              placeholder="Write a little something..."
+              placeholder="Tera kya kehna hai is baare me apne man ki bhadas nikalde qki shayad mai muh pe nhi puch paungi....."
               rows={5}
               maxLength={4000}
               aria-label="Write a note"
@@ -252,27 +272,6 @@ export default function CommentSection({
           </div>
 
           <div className="memento-note-form__footer">
-            <div className="memento-note-author">
-              <span>leaving this as</span>
-
-              <div
-                className="memento-note-author__options"
-                role="group"
-                aria-label="Choose note author"
-              >
-                {(["babli", "kajal"] as const).map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    className={author === option ? "is-active" : ""}
-                    onClick={() => setAuthor(option)}
-                  >
-                    {authorName(option)}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <button
               type="submit"
               className="memento-note-submit"

@@ -6,7 +6,7 @@ export default function ArchiveClosingImage() {
       <div className="archive-closing-image__frame">
         <div className="archive-closing-image__inner">
           <Image
-            src="/images/62.jpeg"
+            src="/images/16.jpeg"
             alt="Babli and Kajal"
             width={1920}
             height={1080}

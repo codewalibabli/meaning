@@ -1,16 +1,26 @@
+import "server-only";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function sendLoginNotification(to: string) {
-  if (!process.env.RESEND_API_KEY) {
-    console.error("RESEND_API_KEY is not configured");
+  console.info("[Vault] Login notification: starting");
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.SECURITY_EMAIL_FROM;
+
+  if (!apiKey || !from) {
+    console.error("[Vault] Login notification skipped: configuration missing", {
+      apiKeyConfigured: Boolean(apiKey),
+      fromConfigured: Boolean(from),
+    });
     return;
   }
 
   try {
-    await resend.emails.send({
-      from: process.env.SECURITY_EMAIL_FROM!,
+    const resend = new Resend(apiKey);
+    console.info("[Vault] Login notification: sending");
+
+    const { data, error } = await resend.emails.send({
+      from,
       to,
       subject: "New Memento Login",
       html: `
@@ -41,8 +51,22 @@ export async function sendLoginNotification(to: string) {
         </div>
       `,
     });
+
+    if (error) {
+      console.error("[Vault] Login notification failed:", error.message, {
+        statusCode: error.statusCode,
+        code: error.name,
+      });
+      return;
+    }
+
+    console.info("[Vault] Login notification accepted by Resend", {
+      id: data?.id,
+    });
   } catch (error) {
-    // Email failure should never prevent login.
-    console.error("Failed to send login notification:", error);
+    console.error(
+      "[Vault] Login notification failed:",
+      error instanceof Error ? error.message : "Unknown error",
+    );
   }
 }

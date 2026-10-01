@@ -213,57 +213,92 @@ body {
 }
 
 
-/* =========================================================
-   COVER
-========================================================= */
-
 .book-cover {
   position: relative;
-
-  width: 100%;
-
-  height: min(88vh, 900px);
-
-  min-height: 620px;
-
   overflow: hidden;
-
-  background: #d8c6bd;
+  min-height: 100vh;
+  width: 100%;
+  background: #2f2523;
 }
 
 .book-cover-image {
   object-fit: cover;
-
-  object-position: center;
-
-  filter:
-    saturate(0.82)
-    contrast(1.02);
+  object-position: center center;
 }
 
 .book-cover-veil {
   position: absolute;
-
   inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(52, 37, 32, 0.46),
-      rgba(52, 37, 32, 0.12) 55%,
-      rgba(52, 37, 32, 0.2)
-    );
-
   z-index: 1;
+  pointer-events: none;
+  background: rgba(12, 8, 7, 0.62);
+}
+.book-cover-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
 }
 
+.book-cover-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 2px;
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.book-cover-button:hover {
+  transform: translateY(-2px);
+}
+
+.book-cover-button--primary {
+  background: #76544e;
+  border: 1px solid #76544e;
+  color: #fffaf7;
+}
+
+.book-cover-button--primary:hover {
+  background: #644640;
+  border-color: #644640;
+}
+
+.book-cover-button--secondary {
+  background: rgba(255, 250, 246, 0.12);
+  border: 1px solid rgba(255, 250, 246, 0.75);
+  color: #fffaf7;
+  backdrop-filter: blur(4px);
+}
+
+.book-cover-button--secondary:hover {
+  background: rgba(255, 250, 246, 0.22);
+}
+/* TOP RIGHT CONTENT */
 .book-cover-copy {
   position: absolute;
-
-  left: clamp(25px, 7vw, 90px);
-  bottom: clamp(40px, 8vw, 90px);
-
   z-index: 2;
+
+  top: 10%;
+  right: 7%;
+
+  width: min(420px, 40%);
+  text-align: right;
 
   color: #fffaf5;
 }
@@ -271,59 +306,59 @@ body {
 .book-cover-title {
   margin: 0;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: clamp(65px, 11vw, 150px);
-
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 7vw, 96px);
   font-weight: 400;
+  font-style: italic;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
 
-  line-height: 0.78;
-
-  letter-spacing: -0.07em;
+  text-shadow: 0 5px 25px rgba(20, 14, 13, 0.55);
 }
 
 .book-cover-names {
-  margin: 20px 0 0;
+  margin: 16px 0 0;
 
   font-family: Arial, sans-serif;
-
-  font-size: 9px;
-
+  font-size: 10px;
   font-weight: 600;
-
-  letter-spacing: 0.35em;
-
+  letter-spacing: 0.28em;
+  line-height: 1.6;
   text-transform: uppercase;
 
-  opacity: 0.88;
+  color: rgba(255, 248, 242, 0.85);
 }
 
 .book-scroll-hint {
   position: absolute;
+  z-index: 2;
 
   left: 50%;
-  bottom: 28px;
-
-  z-index: 3;
-
+  bottom: 34px;
   transform: translateX(-50%);
 
   margin: 0;
 
   font-family: Arial, sans-serif;
-
   font-size: 8px;
-
-  letter-spacing: 0.3em;
-
+  font-weight: 600;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
 
-  color: rgba(255, 250, 245, 0.8);
+  color: rgba(255, 248, 242, 0.72);
 }
 
+.book-scroll-hint::after {
+  content: "";
+  display: block;
+
+  width: 1px;
+  height: 28px;
+
+  margin: 10px auto 0;
+
+  background: rgba(255, 248, 242, 0.5);
+}
 
 /* =========================================================
    GENERAL SECTION
@@ -1957,7 +1992,7 @@ body {
    MOBILE
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 650px) {
   .book-nav {
     padding: 17px 18px;
     align-items: flex-start;
@@ -1973,23 +2008,38 @@ body {
     letter-spacing: 0.11em;
   }
 
+ 
+@media (max-width: 650px) {
+
   .book-cover {
-    min-height: 560px;
-    height: 78vh;
+    min-height: 100svh;
   }
 
   .book-cover-copy {
-    left: 20px;
-    bottom: 45px;
+    top: 8%;
+    right: 7%;
+    left: auto;
+
+    width: 78%;
+
+    text-align: right;
   }
 
   .book-cover-title {
-    font-size: 76px;
+    font-size: clamp(32px, 10vw, 48px);
+    line-height: 0.95;
   }
 
   .book-cover-names {
+    margin-top: 10px;
     font-size: 7px;
+    letter-spacing: 0.16em;
   }
+
+  .book-scroll-hint {
+    bottom: 20px;
+  }
+}
 
   .book-memories {
     padding: 70px 18px 80px;
@@ -2160,7 +2210,19 @@ body {
   .book-capsules h2 {
     font-size: 54px;
   }
+.book-cover-actions {
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 20px;
+}
 
+.book-cover-button {
+  min-width: 108px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
 }
 
 

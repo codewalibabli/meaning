@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import "./memory.css";
 
 type Media = { url: string; resourceType?: "image" | "video" | string };
 type Memory = {
@@ -36,17 +37,22 @@ export default function MemoryArchive({ memories }: { memories: Memory[] }) {
 
   return (
     <main className="memento-shell memento-archive-page">
-      <header className="memento-topbar">
-        <Link href="/vault" className="memento-brand">
-          MEMENTO
-        </Link>
-        <nav className="memento-nav" aria-label="Archive navigation">
-          <Link href="/vault">Home</Link>
-          <Link href="/story">Story</Link>
-          <Link href="/vault/letters">Letters</Link>
-          <Link href="/vault/capsules">Capsules</Link>
-        </nav>
-      </header>
+      <div className="memory-archive-shell">
+        <header className="memory-archive-top">
+          <Link href="/vault" className="memory-archive-brand">
+            MEMENTO
+          </Link>
+
+          <nav className="memory-archive-nav" aria-label="Archive navigation">
+            <Link href="/vault">Home</Link>
+            <Link href="/story">Story</Link>
+            <Link href="/vault/letters">Letters</Link>
+            <Link href="/vault/capsules">Capsules</Link>
+          </nav>
+        </header>
+
+        {/* rest of your Memory Archive */}
+      </div>
 
       <section className="memento-page-header">
         <p className="memento-kicker">02 / archive</p>
@@ -156,18 +162,14 @@ export default function MemoryArchive({ memories }: { memories: Memory[] }) {
 
             {/* Content inside the heart */}
             <div className="memento-heart-section__content">
-              <p className="memento-heart-section__label">a little reminder</p>
-
-              <h2>
-                some moments
-                <br />
-                deserve to live forever.
-              </h2>
+              <p className="memento-heart-section__label">
+                You are my beautiful memory jaana....💗
+              </p>
 
               <p>
-                Not because they were perfect,
+                Can't forget the single moments
                 <br />
-                but because they were ours.
+                that made us laugh, cry, and love
               </p>
             </div>
 

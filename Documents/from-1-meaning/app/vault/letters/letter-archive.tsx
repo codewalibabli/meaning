@@ -33,20 +33,20 @@ export default function LetterArchive({ letters }: { letters: Letter[] }) {
     <main className="letters-page">
       {/* Decorative hearts */}
       <div className="letters-page-hearts" aria-hidden="true">
-        <span className="letters-page-heart letters-page-heart--one">♡</span>
+        <span className="letters-page-heart letters-page-heart--one">💗</span>
 
-        <span className="letters-page-heart letters-page-heart--two">♡</span>
+        <span className="letters-page-heart letters-page-heart--two">💗</span>
 
-        <span className="letters-page-heart letters-page-heart--three">♡</span>
+        <span className="letters-page-heart letters-page-heart--three">💗</span>
 
-        <span className="letters-page-heart letters-page-heart--four">♡</span>
+        <span className="letters-page-heart letters-page-heart--four">💗</span>
       </div>
 
       <div className="letters-page-shell">
         {/* TOP NAV */}
         <header className="letters-page-top">
           <Link href="/vault" className="letters-page-brand">
-            MEMENTO
+            Babli & Kajal
           </Link>
 
           <nav className="letters-page-nav" aria-label="Letters navigation">
@@ -237,7 +237,7 @@ export default function LetterArchive({ letters }: { letters: Letter[] }) {
 
                     {/* Decorative heart */}
                     <span className="letter-card-heart" aria-hidden="true">
-                      ♡
+                      💗
                     </span>
                   </article>
                 );

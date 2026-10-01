@@ -68,7 +68,15 @@ export async function POST(request: Request) {
       path: "/",
     });
 
-    await sendLoginNotification(email);
+    console.info("[Vault] Login notification: invoking after authentication");
+    try {
+      await sendLoginNotification(email);
+    } catch (error) {
+      console.error(
+        "[Vault] Login notification failed:",
+        error instanceof Error ? error.message : "Unknown error",
+      );
+    }
 
     return response;
   } catch {

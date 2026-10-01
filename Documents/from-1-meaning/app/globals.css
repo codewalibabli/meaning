@@ -879,7 +879,7 @@ a { color: inherit; text-decoration: none; }
     padding-right: 18px;
   }
 
-  .memento-topbar {
+  .memento-shell:not(.memento-archive-page) .memento-topbar {
     flex-direction: column;
     align-items: flex-start;
     padding-top: 22px;
@@ -2076,7 +2076,7 @@ a { color: inherit; text-decoration: none; }
     padding: 20px 22px;
   }
 
-  .memento-nav {
+  .memento-header .memento-nav {
     position: absolute;
     top: 70px;
     left: 22px;
@@ -2091,7 +2091,7 @@ a { color: inherit; text-decoration: none; }
     color: #f5efe8;
   }
 
-  .memento-nav.is-open {
+  .memento-header .memento-nav.is-open {
     display: flex;
   }
 
@@ -2917,7 +2917,7 @@ a { color: inherit; text-decoration: none; }
     padding: 20px 22px;
   }
 
-  .memento-nav {
+  .memento-header .memento-nav {
     position: absolute;
     top: 70px;
     left: 22px;
@@ -2932,7 +2932,7 @@ a { color: inherit; text-decoration: none; }
     color: #f5efe8;
   }
 
-  .memento-nav.is-open {
+  .memento-header .memento-nav.is-open {
     display: flex;
   }
 
@@ -3296,72 +3296,82 @@ a { color: inherit; text-decoration: none; }
   color: #714f49;
 }
 
+.memento-archive-page .memento-topbar {
+  max-width: 1120px;
+  min-height: 82px;
+  border-bottom-color: rgba(123, 94, 84, 0.16);
+}
 
-/* =========================================================
-   PAGE HEADER
+.memento-archive-page .memento-brand {
+  font-size: 10px;
+  font-weight: 600;
+}
 
-   IMPORTANT:
-   No card background.
-   No giant border.
-   No giant rounded box.
-   ========================================================= */
+.memento-archive-page .memento-nav {
+  flex-wrap: nowrap;
+}
 
-.memento-page-header {
-  position: relative;
-  z-index: 2;
+.memento-archive-page .memento-nav a {
+  color: #927d75;
+  letter-spacing: 0.12em;
+}
 
-  padding: 72px 0 34px;
-
-  background: transparent !important;
-
-  border: none !important;
-  border-radius: 0 !important;
-
-  box-shadow: none !important;
-
-  backdrop-filter: none !important;
-
-  box-sizing: border-box;
+.memento-archive-page .memento-nav a:hover {
+  color: #4c3934;
 }
 
 
-/* Kicker */
+/* =========================================================
+   MEMORY ARCHIVE HEADER
+   ========================================================= */
 
-.memento-kicker {
-  margin: 0 0 18px;
+.memento-archive-page .memento-page-header {
+  position: relative;
+  z-index: 2;
+
+  width: calc(100% - 48px);
+  max-width: 1180px;
+
+  margin: 0 auto;
+  padding: 48px 0 28px;
+
+  box-sizing: border-box;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.memento-archive-page .memento-kicker {
+  margin: 0 0 16px;
 
   font-family: Arial, sans-serif;
   font-size: 9px;
   font-weight: 600;
+  line-height: 1;
 
-  letter-spacing: 0.26em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 
   color: #9b8178;
 }
 
-
-/* Main heading */
-
-.memento-page-header h1 {
+.memento-archive-page .memento-page-header h1 {
   margin: 0;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(56px, 7vw, 86px);
-
   font-weight: 400;
   line-height: 0.95;
-
   letter-spacing: -0.045em;
 
   color: #4c3934;
 }
 
-
-/* Description */
-
-.memento-page-header > p:not(.memento-kicker) {
-  margin: 22px 0 28px;
+.memento-archive-page .memento-page-header > p:not(.memento-kicker) {
+  margin: 18px 0 24px;
 
   max-width: 430px;
 
@@ -3371,7 +3381,6 @@ a { color: inherit; text-decoration: none; }
 
   color: #927d75;
 }
-
 
 /* =========================================================
    NEW MEMORY BUTTON
@@ -3881,6 +3890,16 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
+@media (max-width: 800px) {
+  .memento-archive-page .memento-topbar {
+    width: calc(100% - 36px);
+  }
+
+  .memento-archive-page .memento-nav {
+    gap: 18px;
+  }
+}
+
 
 /* =========================================================
    MOBILE
@@ -3896,33 +3915,16 @@ a { color: inherit; text-decoration: none; }
   }
 
 
-  /* Navbar */
-
   .memento-archive-page .memento-topbar {
-    min-height: 66px;
-    padding: 0;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .memento-archive-page .memento-brand {
-    font-size: 10px;
+    min-height: 65px;
   }
 
   .memento-archive-page .memento-nav {
-    flex-wrap: nowrap;
     gap: 12px;
-    justify-content: flex-end;
   }
 
   .memento-archive-page .memento-nav a {
     font-size: 7px;
-    letter-spacing: 0.12em;
-  }
-
-  .memento-archive-page .memento-nav a:nth-child(2) {
-    display: none;
   }
 
 
@@ -4007,18 +4009,9 @@ a { color: inherit; text-decoration: none; }
 
   /* Hearts */
 
-  .memento-archive-page .memento-topbar::before {
-    top: 92px;
-    left: 2%;
-
-    font-size: 38px;
-  }
-
+  .memento-archive-page .memento-topbar::before,
   .memento-archive-page .memento-topbar::after {
-    top: 125px;
-    right: 3%;
-
-    font-size: 13px;
+    display: none;
   }
 
   .memento-page-header::after {
@@ -4044,6 +4037,7 @@ a { color: inherit; text-decoration: none; }
   }
 
 }
+
 /* =========================================================
    MEMORY DETAIL
    ========================================================= */

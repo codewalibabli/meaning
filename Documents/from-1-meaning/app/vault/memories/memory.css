@@ -849,3 +849,128 @@
     padding-right: 13px;
   }
 }
+
+
+
+/* =====================================================
+   MEMORY ARCHIVE NAVBAR
+   MATCHES LETTERS ARCHIVE
+===================================================== */
+
+.memory-archive-shell {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 48px, 1120px);
+  margin: 0 auto;
+}
+
+.memory-archive-top {
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(123, 94, 84, 0.16);
+}
+
+.memory-archive-brand {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+
+  color: #4c3934;
+}
+
+.memory-archive-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.memory-archive-nav a {
+  position: relative;
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #927d75;
+
+  transition: color 0.2s ease;
+}
+
+.memory-archive-nav a:hover {
+  color: #4c3934;
+}
+
+
+/* =========================================
+   MEMORY ARCHIVE — HEADER SPACING
+========================================= */
+
+.memento-archive-page .memento-page-header {
+  margin-top: 0 !important;
+  padding-top: 48px !important;
+  padding-bottom: 32px !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* =====================================================
+   MOBILE — SAME AS LETTERS ARCHIVE
+===================================================== */
+
+@media (max-width: 800px) {
+  .memory-archive-shell {
+    width: min(100% - 36px, 1120px);
+  }
+
+  .memory-archive-nav {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 650px) {
+  .memory-archive-shell {
+    width: calc(100% - 32px);
+  }
+
+  .memory-archive-top {
+    min-height: 65px;
+  }
+
+  .memory-archive-nav {
+    gap: 12px;
+  }
+
+  .memory-archive-nav a {
+    font-size: 7px;
+  }
+
+  /* EXACTLY like Letters Archive */
+  .memory-archive-nav a:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .memory-archive-nav a {
+    font-size: 6px;
+  }
+}
+
+@media (max-width: 650px) {
+  .memento-archive-page .memento-page-header {
+    margin-top: 0 !important;
+    padding-top: 38px !important;
+    padding-bottom: 28px !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+}

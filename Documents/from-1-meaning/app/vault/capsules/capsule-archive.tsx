@@ -26,7 +26,7 @@ export default function CapsuleArchive({ capsules }: { capsules: Capsule[] }) {
       {/* TOP NAV */}
       <header className="capsules-top">
         <Link href="/vault" className="capsules-brand">
-          MEMENTO
+          Babli & Kajal
         </Link>
 
         <nav className="capsules-nav">
@@ -115,7 +115,7 @@ export default function CapsuleArchive({ capsules }: { capsules: Capsule[] }) {
               >
                 {/* decorative marks */}
                 <span className="capsule-paper-heart" aria-hidden="true">
-                  ♡
+                  💗
                 </span>
 
                 <div className="capsule-paper-number">
@@ -210,7 +210,7 @@ export default function CapsuleArchive({ capsules }: { capsules: Capsule[] }) {
 
       <footer className="capsules-footer">
         <span>Babli & Kajal</span>
-        <span>♡</span>
+        <span>💗</span>
         <span>words for another day</span>
       </footer>
       <ArchiveClosingImage />

@@ -60,7 +60,7 @@ const STORY_LINES = [
 ] as const;
 
 const VIDEO_SRC = "/our.mp4";
-const COVER_SRC = "/images/24.jpeg";
+const COVER_SRC = "/vaulthome.png";
 
 function personLabel(value?: string) {
   return value === "kajal" ? "Kajal" : "Babli";
@@ -103,7 +103,7 @@ export default function VaultHome({
     <main className="book-home">
       <header className={`book-nav ${scrolled ? "is-scrolled" : ""}`}>
         <Link href="/vault" className="book-brand">
-          MEMENTO
+          Babli & Kajal
         </Link>
         <nav className="book-nav-links" aria-label="Main navigation">
           <Link href="/story">Our Story</Link>
@@ -127,8 +127,24 @@ export default function VaultHome({
         />
         <div className="book-cover-veil" aria-hidden="true" />
         <div className="book-cover-copy">
-          <p className="book-cover-title">ours.</p>
-          <p className="book-cover-names">Babli & Kajal</p>
+          <p className="book-cover-title">Babli & Kajal</p>
+          <p className="book-cover-names">Forever through Memories</p>
+
+          <div className="book-cover-actions">
+            <Link
+              href="/vault/birthday"
+              className="book-cover-button book-cover-button--primary"
+            >
+              Happy Birthday
+            </Link>
+
+            <Link
+              href="/story"
+              className="book-cover-button book-cover-button--secondary"
+            >
+              Our Story
+            </Link>
+          </div>
         </div>
         <p className="book-scroll-hint">scroll</p>
       </section>

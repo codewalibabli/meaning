@@ -46,7 +46,7 @@ export default function StoryPage() {
         <div className="story-hero-image__frame">
           <div className="story-hero-image__photo-wrap">
             <Image
-              src="/home.png"
+              src="/vault.png"
               alt="Babli and Kajal"
               fill
               priority

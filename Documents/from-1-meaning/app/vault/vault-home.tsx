@@ -118,7 +118,7 @@ export default function VaultHome({
 
       <section className="book-cover" aria-label="Album cover">
         <Image
-          src={COVER_SRC}
+          src="/vault.png"
           alt="A photograph from our album"
           fill
           priority

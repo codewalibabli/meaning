@@ -93,8 +93,6 @@ export default function LoginForm() {
 
           <div className="love-symbol">♡</div>
 
-          <p className="love-names">For Kajli </p>
-
           <form className="love-login-form" onSubmit={handleSubmit} noValidate>
             <div className="love-field">
               <label htmlFor="login-email">Email</label>

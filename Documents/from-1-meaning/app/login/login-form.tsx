@@ -85,13 +85,7 @@ export default function LoginForm() {
 
       <div className="love-login-content">
         <div className="love-login-card">
-          <div className="love-card-top">
-            <span className="love-mini-line" />
-            <span className="love-card-label">Just a small space</span>
-            <span className="love-mini-line" />
-          </div>
-
-          <div className="love-symbol">♡</div>
+          <div className="love-card-top"></div>
 
           <form className="love-login-form" onSubmit={handleSubmit} noValidate>
             <div className="love-field">
@@ -150,12 +144,6 @@ export default function LoginForm() {
               {error || "just between you & me ♡"}
             </p>
           </form>
-
-          <div className="love-card-footer">
-            <span>made with love</span>
-            <span>·</span>
-            <span>just for us</span>
-          </div>
         </div>
       </div>
     </main>
